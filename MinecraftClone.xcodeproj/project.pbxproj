@@ -7,7 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A5230CBE2B683D10007533F9 /* libGLEW.2.2.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A5230CBD2B683D10007533F9 /* libGLEW.2.2.0.dylib */; };
 		A53C426E2B68140B008A9341 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A53C426D2B68140B008A9341 /* main.cpp */; };
+		A53C42782B681A3B008A9341 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A53C42772B681A3B008A9341 /* OpenGL.framework */; };
+		A53C427C2B681EF5008A9341 /* libglfw.3.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A53C427B2B681EF5008A9341 /* libglfw.3.3.dylib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -23,8 +26,11 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		A5230CBD2B683D10007533F9 /* libGLEW.2.2.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libGLEW.2.2.0.dylib; path = ../../../../../../opt/homebrew/Cellar/glew/2.2.0_1/lib/libGLEW.2.2.0.dylib; sourceTree = "<group>"; };
 		A53C426A2B68140B008A9341 /* MinecraftClone */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = MinecraftClone; sourceTree = BUILT_PRODUCTS_DIR; };
 		A53C426D2B68140B008A9341 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		A53C42772B681A3B008A9341 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
+		A53C427B2B681EF5008A9341 /* libglfw.3.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libglfw.3.3.dylib; path = ../../../../../../opt/homebrew/Cellar/glfw/3.3.9/lib/libglfw.3.3.dylib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -32,6 +38,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A5230CBE2B683D10007533F9 /* libGLEW.2.2.0.dylib in Frameworks */,
+				A53C427C2B681EF5008A9341 /* libglfw.3.3.dylib in Frameworks */,
+				A53C42782B681A3B008A9341 /* OpenGL.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -43,6 +52,7 @@
 			children = (
 				A53C426C2B68140B008A9341 /* MinecraftClone */,
 				A53C426B2B68140B008A9341 /* Products */,
+				A53C42762B681A3B008A9341 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -60,6 +70,16 @@
 				A53C426D2B68140B008A9341 /* main.cpp */,
 			);
 			path = MinecraftClone;
+			sourceTree = "<group>";
+		};
+		A53C42762B681A3B008A9341 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A5230CBD2B683D10007533F9 /* libGLEW.2.2.0.dylib */,
+				A53C427B2B681EF5008A9341 /* libglfw.3.3.dylib */,
+				A53C42772B681A3B008A9341 /* OpenGL.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -238,7 +258,18 @@
 		A53C42722B68140B008A9341 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
+				HEADER_SEARCH_PATHS = (
+					/opt/homebrew/Cellar/glfw/3.3.9/include,
+					/opt/homebrew/Cellar/glew/2.2.0_1/include,
+				);
+				LD_RUNPATH_SEARCH_PATHS = "";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/opt/homebrew/Cellar/glfw/3.3.9/lib,
+					/opt/homebrew/Cellar/glew/2.2.0_1/lib,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -246,7 +277,18 @@
 		A53C42732B68140B008A9341 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
+				HEADER_SEARCH_PATHS = (
+					/opt/homebrew/Cellar/glfw/3.3.9/include,
+					/opt/homebrew/Cellar/glew/2.2.0_1/include,
+				);
+				LD_RUNPATH_SEARCH_PATHS = "";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/opt/homebrew/Cellar/glfw/3.3.9/lib,
+					/opt/homebrew/Cellar/glew/2.2.0_1/lib,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
