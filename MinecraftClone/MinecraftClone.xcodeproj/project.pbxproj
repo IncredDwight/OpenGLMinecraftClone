@@ -10,6 +10,7 @@
 		A5C853C42BCC8BE600326246 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A5C853C32BCC8BE600326246 /* main.cpp */; };
 		A5C853CC2BCC8E2900326246 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5C853CB2BCC8E2900326246 /* OpenGL.framework */; };
 		A5C853CE2BCC8F3000326246 /* libglfw.3.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A5C853CD2BCC8F3000326246 /* libglfw.3.3.dylib */; };
+		A5E412D82C0916E3003FF96F /* Shader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A5E412D62C0916E3003FF96F /* Shader.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -29,6 +30,8 @@
 		A5C853C32BCC8BE600326246 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		A5C853CB2BCC8E2900326246 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
 		A5C853CD2BCC8F3000326246 /* libglfw.3.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libglfw.3.3.dylib; path = ../../../../../../../opt/homebrew/Cellar/glfw/3.3.9/lib/libglfw.3.3.dylib; sourceTree = "<group>"; };
+		A5E412D62C0916E3003FF96F /* Shader.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Shader.cpp; sourceTree = "<group>"; };
+		A5E412D72C0916E3003FF96F /* Shader.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Shader.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +67,8 @@
 		A5C853C22BCC8BE600326246 /* MinecraftClone */ = {
 			isa = PBXGroup;
 			children = (
+				A5E412D52C0916CA003FF96F /* source */,
+				A5E412D42C0916C1003FF96F /* resources */,
 				A5C853C32BCC8BE600326246 /* main.cpp */,
 			);
 			path = MinecraftClone;
@@ -76,6 +81,30 @@
 				A5C853CB2BCC8E2900326246 /* OpenGL.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A5E412D42C0916C1003FF96F /* resources */ = {
+			isa = PBXGroup;
+			children = (
+				A5E412D92C0CED9F003FF96F /* Shaders */,
+			);
+			path = resources;
+			sourceTree = "<group>";
+		};
+		A5E412D52C0916CA003FF96F /* source */ = {
+			isa = PBXGroup;
+			children = (
+				A5E412D62C0916E3003FF96F /* Shader.cpp */,
+				A5E412D72C0916E3003FF96F /* Shader.hpp */,
+			);
+			path = source;
+			sourceTree = "<group>";
+		};
+		A5E412D92C0CED9F003FF96F /* Shaders */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Shaders;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -135,6 +164,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A5E412D82C0916E3003FF96F /* Shader.cpp in Sources */,
 				A5C853C42BCC8BE600326246 /* main.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -256,6 +286,7 @@
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
+				GCC_PREPROCESSOR_DEFINITIONS = GL_SILENCE_DEPRECATION;
 				HEADER_SEARCH_PATHS = /opt/homebrew/Cellar/glfw/3.3.9/include;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -270,6 +301,7 @@
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
+				GCC_PREPROCESSOR_DEFINITIONS = GL_SILENCE_DEPRECATION;
 				HEADER_SEARCH_PATHS = /opt/homebrew/Cellar/glfw/3.3.9/include;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
