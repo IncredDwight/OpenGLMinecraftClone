@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A5260E0F2C10D06A0072EDC9 /* libGLEW.2.2.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A5260E0E2C10D06A0072EDC9 /* libGLEW.2.2.0.dylib */; };
 		A5C853C42BCC8BE600326246 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A5C853C32BCC8BE600326246 /* main.cpp */; };
 		A5C853CC2BCC8E2900326246 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5C853CB2BCC8E2900326246 /* OpenGL.framework */; };
 		A5C853CE2BCC8F3000326246 /* libglfw.3.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A5C853CD2BCC8F3000326246 /* libglfw.3.3.dylib */; };
@@ -26,6 +27,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		A5260E0E2C10D06A0072EDC9 /* libGLEW.2.2.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libGLEW.2.2.0.dylib; path = ../../../../../../../opt/homebrew/Cellar/glew/2.2.0_1/lib/libGLEW.2.2.0.dylib; sourceTree = "<group>"; };
 		A5C853C02BCC8BE600326246 /* MinecraftClone */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = MinecraftClone; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5C853C32BCC8BE600326246 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		A5C853CB2BCC8E2900326246 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
@@ -39,6 +41,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A5260E0F2C10D06A0072EDC9 /* libGLEW.2.2.0.dylib in Frameworks */,
 				A5C853CE2BCC8F3000326246 /* libglfw.3.3.dylib in Frameworks */,
 				A5C853CC2BCC8E2900326246 /* OpenGL.framework in Frameworks */,
 			);
@@ -77,6 +80,7 @@
 		A5C853CA2BCC8E2800326246 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A5260E0E2C10D06A0072EDC9 /* libGLEW.2.2.0.dylib */,
 				A5C853CD2BCC8F3000326246 /* libglfw.3.3.dylib */,
 				A5C853CB2BCC8E2900326246 /* OpenGL.framework */,
 			);
@@ -287,10 +291,14 @@
 				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				GCC_PREPROCESSOR_DEFINITIONS = GL_SILENCE_DEPRECATION;
-				HEADER_SEARCH_PATHS = /opt/homebrew/Cellar/glfw/3.3.9/include;
+				HEADER_SEARCH_PATHS = (
+					/opt/homebrew/Cellar/glfw/3.3.9/include,
+					/opt/homebrew/Cellar/glew/2.2.0_1/include,
+				);
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					/opt/homebrew/Cellar/glfw/3.3.9/lib,
+					/opt/homebrew/Cellar/glew/2.2.0_1/lib,
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -302,10 +310,14 @@
 				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				GCC_PREPROCESSOR_DEFINITIONS = GL_SILENCE_DEPRECATION;
-				HEADER_SEARCH_PATHS = /opt/homebrew/Cellar/glfw/3.3.9/include;
+				HEADER_SEARCH_PATHS = (
+					/opt/homebrew/Cellar/glfw/3.3.9/include,
+					/opt/homebrew/Cellar/glew/2.2.0_1/include,
+				);
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					/opt/homebrew/Cellar/glfw/3.3.9/lib,
+					/opt/homebrew/Cellar/glew/2.2.0_1/lib,
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};

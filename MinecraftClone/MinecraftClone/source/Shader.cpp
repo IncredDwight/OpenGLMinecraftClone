@@ -35,6 +35,19 @@ unsigned int Shader::CreateShader(unsigned int type, std::string &source){
     const char* src = source.c_str();
     glShaderSource(shader, 1, &src, nullptr);
     glCompileShader(shader);
+    int result;
+        glGetShaderiv(shader, GL_COMPILE_STATUS, &result);
+        if(!result){
+            int length;
+            glGetShaderiv(shader, GL_INFO_LOG_LENGTH, &length);
+            char* message = (char*)alloca(length * sizeof(char));
+            glGetShaderInfoLog(shader, length, &length, message);
+            
+            std::cout << "Failed to compile shader!" << std::endl;
+            std::cout << message << std::endl;
+            glDeleteShader(shader);
+            return 0;
+        }
     
     return shader;
 }
@@ -60,6 +73,7 @@ void Shader::ParseShader(const std::string& filePath, std::string* vertexShader,
         }
     }
     
+    std::cout << index << std::endl;
     *vertexShader = shader[0];
     *fragmentShader = shader[1];
 }
