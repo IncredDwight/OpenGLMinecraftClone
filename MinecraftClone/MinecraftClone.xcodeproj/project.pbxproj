@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		A5260E0F2C10D06A0072EDC9 /* libGLEW.2.2.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A5260E0E2C10D06A0072EDC9 /* libGLEW.2.2.0.dylib */; };
+		A529C3692C1236E90047C751 /* VertexBuffer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A529C3672C1236E90047C751 /* VertexBuffer.cpp */; };
 		A5C853C42BCC8BE600326246 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A5C853C32BCC8BE600326246 /* main.cpp */; };
 		A5C853CC2BCC8E2900326246 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5C853CB2BCC8E2900326246 /* OpenGL.framework */; };
 		A5C853CE2BCC8F3000326246 /* libglfw.3.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A5C853CD2BCC8F3000326246 /* libglfw.3.3.dylib */; };
@@ -28,6 +29,8 @@
 
 /* Begin PBXFileReference section */
 		A5260E0E2C10D06A0072EDC9 /* libGLEW.2.2.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libGLEW.2.2.0.dylib; path = ../../../../../../../opt/homebrew/Cellar/glew/2.2.0_1/lib/libGLEW.2.2.0.dylib; sourceTree = "<group>"; };
+		A529C3672C1236E90047C751 /* VertexBuffer.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = VertexBuffer.cpp; sourceTree = "<group>"; };
+		A529C3682C1236E90047C751 /* VertexBuffer.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = VertexBuffer.hpp; sourceTree = "<group>"; };
 		A5C853C02BCC8BE600326246 /* MinecraftClone */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = MinecraftClone; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5C853C32BCC8BE600326246 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		A5C853CB2BCC8E2900326246 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
@@ -100,6 +103,8 @@
 			children = (
 				A5E412D62C0916E3003FF96F /* Shader.cpp */,
 				A5E412D72C0916E3003FF96F /* Shader.hpp */,
+				A529C3672C1236E90047C751 /* VertexBuffer.cpp */,
+				A529C3682C1236E90047C751 /* VertexBuffer.hpp */,
 			);
 			path = source;
 			sourceTree = "<group>";
@@ -170,6 +175,7 @@
 			files = (
 				A5E412D82C0916E3003FF96F /* Shader.cpp in Sources */,
 				A5C853C42BCC8BE600326246 /* main.cpp in Sources */,
+				A529C3692C1236E90047C751 /* VertexBuffer.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
