@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		A5260E0F2C10D06A0072EDC9 /* libGLEW.2.2.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A5260E0E2C10D06A0072EDC9 /* libGLEW.2.2.0.dylib */; };
 		A529C3692C1236E90047C751 /* VertexBuffer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A529C3672C1236E90047C751 /* VertexBuffer.cpp */; };
+		A546E73D2C18ADFA006FC6A1 /* IndexBuffer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A546E73B2C18ADFA006FC6A1 /* IndexBuffer.cpp */; };
 		A5C683F12C125C7600857C0C /* VertexArray.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A5C683EF2C125C7600857C0C /* VertexArray.cpp */; };
 		A5C683F42C1260AB00857C0C /* VertexLayout.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A5C683F22C1260AB00857C0C /* VertexLayout.cpp */; };
 		A5C853C42BCC8BE600326246 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A5C853C32BCC8BE600326246 /* main.cpp */; };
@@ -33,6 +34,8 @@
 		A5260E0E2C10D06A0072EDC9 /* libGLEW.2.2.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libGLEW.2.2.0.dylib; path = ../../../../../../../opt/homebrew/Cellar/glew/2.2.0_1/lib/libGLEW.2.2.0.dylib; sourceTree = "<group>"; };
 		A529C3672C1236E90047C751 /* VertexBuffer.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = VertexBuffer.cpp; sourceTree = "<group>"; };
 		A529C3682C1236E90047C751 /* VertexBuffer.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = VertexBuffer.hpp; sourceTree = "<group>"; };
+		A546E73B2C18ADFA006FC6A1 /* IndexBuffer.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = IndexBuffer.cpp; sourceTree = "<group>"; };
+		A546E73C2C18ADFA006FC6A1 /* IndexBuffer.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = IndexBuffer.hpp; sourceTree = "<group>"; };
 		A5C683EF2C125C7600857C0C /* VertexArray.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = VertexArray.cpp; sourceTree = "<group>"; };
 		A5C683F02C125C7600857C0C /* VertexArray.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = VertexArray.hpp; sourceTree = "<group>"; };
 		A5C683F22C1260AB00857C0C /* VertexLayout.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = VertexLayout.cpp; sourceTree = "<group>"; };
@@ -115,6 +118,8 @@
 				A5C683F02C125C7600857C0C /* VertexArray.hpp */,
 				A5C683F22C1260AB00857C0C /* VertexLayout.cpp */,
 				A5C683F32C1260AB00857C0C /* VertexLayout.hpp */,
+				A546E73B2C18ADFA006FC6A1 /* IndexBuffer.cpp */,
+				A546E73C2C18ADFA006FC6A1 /* IndexBuffer.hpp */,
 			);
 			path = source;
 			sourceTree = "<group>";
@@ -185,6 +190,7 @@
 			files = (
 				A5E412D82C0916E3003FF96F /* Shader.cpp in Sources */,
 				A5C683F12C125C7600857C0C /* VertexArray.cpp in Sources */,
+				A546E73D2C18ADFA006FC6A1 /* IndexBuffer.cpp in Sources */,
 				A5C683F42C1260AB00857C0C /* VertexLayout.cpp in Sources */,
 				A5C853C42BCC8BE600326246 /* main.cpp in Sources */,
 				A529C3692C1236E90047C751 /* VertexBuffer.cpp in Sources */,

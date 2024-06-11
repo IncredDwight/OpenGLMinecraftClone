@@ -4,6 +4,7 @@
 #include "Shader.hpp"
 #include "VertexBuffer.hpp"
 #include "VertexArray.hpp"
+#include "IndexBuffer.hpp"
 #include <string>
 #include <iostream>
 
@@ -36,13 +37,22 @@ int main(void)
     glewInit();
     
     float vertices[] = {
-        0.0f, -0.5f, 0.0f, 0.0f, 0.5f, 0.5f, 1.0f,
-        0.0f,  0.5f, 0.0f, 0.1f, 1.0f, 0.5f, 1.0f,
+        0.0f,  0.0f, 0.0f, 0.0f, 0.5f, 0.5f, 1.0f,
+        0.5f,  0.5f, 0.0f, 0.1f, 1.0f, 0.5f, 1.0f,
+        0.5f,  0.0f, 0.0f, 0.1f, 0.5f, 0.5f, 1.0f,
         0.0f,  0.5f, 0.0f, 0.1f, 0.5f, 0.5f, 1.0f
     };
     
+    unsigned int indicies[] = {
+        0, 1, 2,
+        0, 1, 3
+    };
+    
     VertexBuffer vertexBuffer(sizeof(vertices), vertices);
-    VertexArray vertexArray(6 * sizeof(float));
+    VertexArray vertexArray(7 * sizeof(float));
+    
+    IndexBuffer indexBuffer(sizeof(indicies), indicies);
+    
     VertexLayout layout0(0, 3, GL_FLOAT, 0);
     VertexLayout layout1(1, 4, GL_FLOAT, 3 * sizeof(float));
     vertexArray.AddLayout(layout0);
@@ -55,7 +65,7 @@ int main(void)
     while (!glfwWindowShouldClose(window))
     {
         glClear(GL_COLOR_BUFFER_BIT);
-        glDrawArrays(GL_TRIANGLES, 0, 3);
+        glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, (void*)0);
         glfwSwapBuffers(window);
         
 
