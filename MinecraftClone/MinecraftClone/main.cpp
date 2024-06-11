@@ -3,6 +3,7 @@
 #include <GLFW/glfw3.h>
 #include "Shader.hpp"
 #include "VertexBuffer.hpp"
+#include "VertexArray.hpp"
 #include <string>
 #include <iostream>
 
@@ -41,14 +42,11 @@ int main(void)
     };
     
     VertexBuffer vertexBuffer(sizeof(vertices), vertices);
-    
-    unsigned int VAO;
-    glGenVertexArrays(1, &VAO);
-    glBindVertexArray(VAO);
-    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(float), (void*)0);
-    glEnableVertexAttribArray(0);
-    glVertexAttribPointer(1, 4, GL_FLOAT, GL_FALSE, 6 * sizeof(float), (void*)(3 * sizeof(float)));
-    glEnableVertexAttribArray(1);
+    VertexArray vertexArray(6 * sizeof(float));
+    VertexLayout layout0(0, 3, GL_FLOAT, 0);
+    VertexLayout layout1(1, 4, GL_FLOAT, 3 * sizeof(float));
+    vertexArray.AddLayout(layout0);
+    vertexArray.AddLayout(layout1);
     
     std::string shaderFilePath = "/Users/yaroslavvalchyshen/Desktop/Programming/GitHub/OpenGLMinecraftClone/MinecraftClone/MinecraftClone/resources/Shaders/Basic.shader";
     
