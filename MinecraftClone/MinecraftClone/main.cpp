@@ -62,10 +62,27 @@ int main(void)
     
     Shader shader(shaderFilePath);
     
+    glm::mat4 model = glm::mat4(1.0f);
+    glm::vec3 position = glm::vec3(0, 0, 1.5f);
+    glm::vec3 direction = glm::vec3(0, 0, -1.0f);
+    glm::mat4 view = glm::lookAt(position, position + direction, glm::vec3(0, 1, 0));
+    
+    glm::mat4 projection = glm::perspective(glm::radians(45.0f), 800.0f / 600.0f, 0.1f, 100.0f);
+    
+    shader.SetUniformMat4f("u_model", model);
+    shader.SetUniformMat4f("u_view", view);
+    shader.SetUniformMat4f("u_projection", projection);
+    
+    
+    float rotation = 0;
+    
     while (!glfwWindowShouldClose(window))
     {
+        model = glm::rotate(model, glm::radians(0.25f), glm::vec3(1, 1, 1));
+        shader.SetUniformMat4f("u_model", model);
+        rotation += 1;
         glClear(GL_COLOR_BUFFER_BIT);
-        glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, (void*)0);
+        glDrawElements(GL_TRIANGLES, sizeof(indicies) / sizeof(float), GL_UNSIGNED_INT, (void*)0);
         glfwSwapBuffers(window);
         
 

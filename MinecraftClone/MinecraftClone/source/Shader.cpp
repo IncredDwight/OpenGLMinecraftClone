@@ -77,3 +77,18 @@ void Shader::ParseShader(const std::string& filePath, std::string* vertexShader,
     *vertexShader = shader[0];
     *fragmentShader = shader[1];
 }
+
+unsigned int Shader::GetUniformLocation(const std::string &name){
+    int location = glGetUniformLocation(_id, name.c_str());
+    
+    if(location == -1)
+        std::cout << "Uniform not found" << std::endl;
+    
+    return location;
+}
+
+void Shader::SetUniformMat4f(const std::string &name, glm::mat4 &matrix){
+    glUniformMatrix4fv(GetUniformLocation(name), 1, GL_FALSE, &matrix[0][0]);
+}
+
+

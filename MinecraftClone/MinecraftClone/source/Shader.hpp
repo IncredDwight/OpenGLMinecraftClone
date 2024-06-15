@@ -5,6 +5,8 @@
 #include <stdio.h>
 #include <string>
 #include <GLFW/glfw3.h>
+#include "glm/glm.hpp"
+#include "glm/gtc/matrix_transform.hpp"
 
 class Shader {
 private:
@@ -14,8 +16,12 @@ private:
     unsigned int CreateShader(unsigned int type, std::string& source);
     void ParseShader(const std::string& filePath, std::string* vertexShader, std::string* fragmentShader);
     
+    unsigned int GetUniformLocation(const std::string& name);
+    
 public:
     Shader(const std::string& filePath);
     ~Shader();
+    
+    void SetUniformMat4f(const std::string& name, glm::mat4& matrix);
 };
 #endif /* Shader_hpp */

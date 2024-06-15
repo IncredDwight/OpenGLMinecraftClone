@@ -36,6 +36,7 @@
 		A529C3682C1236E90047C751 /* VertexBuffer.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = VertexBuffer.hpp; sourceTree = "<group>"; };
 		A546E73B2C18ADFA006FC6A1 /* IndexBuffer.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = IndexBuffer.cpp; sourceTree = "<group>"; };
 		A546E73C2C18ADFA006FC6A1 /* IndexBuffer.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = IndexBuffer.hpp; sourceTree = "<group>"; };
+		A546E73E2C18C021006FC6A1 /* glm */ = {isa = PBXFileReference; lastKnownFileType = folder; path = glm; sourceTree = "<group>"; };
 		A5C683EF2C125C7600857C0C /* VertexArray.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = VertexArray.cpp; sourceTree = "<group>"; };
 		A5C683F02C125C7600857C0C /* VertexArray.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = VertexArray.hpp; sourceTree = "<group>"; };
 		A5C683F22C1260AB00857C0C /* VertexLayout.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = VertexLayout.cpp; sourceTree = "<group>"; };
@@ -110,6 +111,7 @@
 		A5E412D52C0916CA003FF96F /* source */ = {
 			isa = PBXGroup;
 			children = (
+				A546E73E2C18C021006FC6A1 /* glm */,
 				A5E412D62C0916E3003FF96F /* Shader.cpp */,
 				A5E412D72C0916E3003FF96F /* Shader.hpp */,
 				A529C3672C1236E90047C751 /* VertexBuffer.cpp */,
