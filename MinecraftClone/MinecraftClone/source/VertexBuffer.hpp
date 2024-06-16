@@ -5,6 +5,18 @@
 #include <stdio.h>
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
+#include "glm/glm.hpp"
+
+struct Vertex{
+    glm::vec3 Position;
+    glm::vec4 Color;
+    
+public:
+    Vertex(glm::vec3 position, glm::vec4 color){
+        Position = position;
+        Color = color;
+    }
+};
 
 class VertexBuffer{
 private:

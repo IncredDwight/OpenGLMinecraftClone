@@ -5,6 +5,8 @@
 #include "VertexBuffer.hpp"
 #include "VertexArray.hpp"
 #include "IndexBuffer.hpp"
+#include "Camera.hpp"
+#include "Mesh.hpp"
 #include <string>
 #include <iostream>
 
@@ -36,22 +38,41 @@ int main(void)
     glViewport(0, 0, screenWidth, screenHeight);
     glewInit();
     
-    float vertices[] = {
+    Vertex vertices[] = {
+        Vertex(glm::vec3(0.0f,  0.0f, 0.0f), glm::vec4(0.0f, 0.5f, 0.5f, 1.0f)),
+        Vertex(glm::vec3(0.5f,  0.5f, 0.0f), glm::vec4(0.1f, 1.0f, 0.5f, 1.0f)),
+        Vertex(glm::vec3(0.5f,  0.0f, 0.0f), glm::vec4(0.1f, 0.5f, 0.5f, 1.0f)),
+        Vertex(glm::vec3(0.0f,  0.5f, 0.0f), glm::vec4(0.1f, 0.5f, 0.5f, 1.0f))
+    };
+    
+    /*float vertices[] = {
         0.0f,  0.0f, 0.0f, 0.0f, 0.5f, 0.5f, 1.0f,
         0.5f,  0.5f, 0.0f, 0.1f, 1.0f, 0.5f, 1.0f,
         0.5f,  0.0f, 0.0f, 0.1f, 0.5f, 0.5f, 1.0f,
         0.0f,  0.5f, 0.0f, 0.1f, 0.5f, 0.5f, 1.0f
-    };
+    };*/
     
     unsigned int indicies[] = {
         0, 1, 2,
         0, 1, 3
     };
-    
-    VertexBuffer vertexBuffer(sizeof(vertices), vertices);
     VertexArray vertexArray(7 * sizeof(float));
+    //VertexBuffer vertexBuffer(sizeof(vertices), vertices);
     
-    IndexBuffer indexBuffer(sizeof(indicies), indicies);
+    
+    //IndexBuffer indexBuffer(sizeof(indicies), indicies);
+    
+    std::vector<Vertex> verts(vertices, vertices + sizeof(vertices) / sizeof(Vertex));
+    std::vector<unsigned int> ind(indicies, indicies + sizeof(indicies) / sizeof(unsigned int));
+    std::cout << sizeof(verts) << ":" << sizeof(vertices) << std::endl;
+    /*std::cout << "Size: " << verts.size() << std::endl;
+    for (int i = 0; i < verts.size(); i++) {
+        std::cout << "Vertex: " << verts[i].Position.x << std::endl;
+    }
+    */
+    Mesh mesh(verts, ind);
+    
+    //VertexArray vertexArray(7 * sizeof(float));
     
     VertexLayout layout0(0, 3, GL_FLOAT, 0);
     VertexLayout layout1(1, 4, GL_FLOAT, 3 * sizeof(float));
@@ -64,15 +85,9 @@ int main(void)
     
     glm::mat4 model = glm::mat4(1.0f);
     glm::vec3 position = glm::vec3(0, 0, 1.5f);
-    glm::vec3 direction = glm::vec3(0, 0, -1.0f);
-    glm::mat4 view = glm::lookAt(position, position + direction, glm::vec3(0, 1, 0));
-    
-    glm::mat4 projection = glm::perspective(glm::radians(45.0f), 800.0f / 600.0f, 0.1f, 100.0f);
+    Camera camera(position, 45.0f, shader);
     
     shader.SetUniformMat4f("u_model", model);
-    shader.SetUniformMat4f("u_view", view);
-    shader.SetUniformMat4f("u_projection", projection);
-    
     
     float rotation = 0;
     
@@ -80,11 +95,14 @@ int main(void)
     {
         model = glm::rotate(model, glm::radians(0.25f), glm::vec3(1, 1, 1));
         shader.SetUniformMat4f("u_model", model);
-        rotation += 1;
-        glClear(GL_COLOR_BUFFER_BIT);
-        glDrawElements(GL_TRIANGLES, sizeof(indicies) / sizeof(float), GL_UNSIGNED_INT, (void*)0);
-        glfwSwapBuffers(window);
         
+        rotation += 1;
+        camera.Update(shader);
+        camera.Position.z += 0.0025f;
+        
+        glClear(GL_COLOR_BUFFER_BIT);
+        mesh.Draw();
+        glfwSwapBuffers(window);
 
         glfwPollEvents();
     }
