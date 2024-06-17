@@ -7,6 +7,7 @@
 #include "IndexBuffer.hpp"
 #include "Camera.hpp"
 #include "Mesh.hpp"
+#include "Rectangle.hpp"
 #include <string>
 #include <iostream>
 
@@ -58,19 +59,11 @@ int main(void)
     };
     VertexArray vertexArray(7 * sizeof(float));
     //VertexBuffer vertexBuffer(sizeof(vertices), vertices);
-    
+    Rectangle rectangle(glm::vec3(-0.5f, 0.0f, 0.0f));
+    Rectangle rectangle1(glm::vec3(0.5f, 0.0f, 0.0f));
     
     //IndexBuffer indexBuffer(sizeof(indicies), indicies);
-    
-    std::vector<Vertex> verts(vertices, vertices + sizeof(vertices) / sizeof(Vertex));
-    std::vector<unsigned int> ind(indicies, indicies + sizeof(indicies) / sizeof(unsigned int));
-    std::cout << sizeof(verts) << ":" << sizeof(vertices) << std::endl;
-    /*std::cout << "Size: " << verts.size() << std::endl;
-    for (int i = 0; i < verts.size(); i++) {
-        std::cout << "Vertex: " << verts[i].Position.x << std::endl;
-    }
-    */
-    Mesh mesh(verts, ind);
+    //Mesh mesh(verts, ind);
     
     //VertexArray vertexArray(7 * sizeof(float));
     
@@ -98,10 +91,12 @@ int main(void)
         
         rotation += 1;
         camera.Update(shader);
-        camera.Position.z += 0.0025f;
+        //camera.Position.z += 0.0025f;
         
         glClear(GL_COLOR_BUFFER_BIT);
-        mesh.Draw();
+        rectangle.Update(shader);
+        rectangle1.Update(shader);
+        //mesh.Draw();
         glfwSwapBuffers(window);
 
         glfwPollEvents();

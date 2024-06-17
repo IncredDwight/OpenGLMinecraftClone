@@ -23,5 +23,6 @@ public:
     ~Shader();
     
     void SetUniformMat4f(const std::string& name, glm::mat4& matrix);
+    glm::mat4 GetUniformMat4f(const std::string& name);
 };
 #endif /* Shader_hpp */

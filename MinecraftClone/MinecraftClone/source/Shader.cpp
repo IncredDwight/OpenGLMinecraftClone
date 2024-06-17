@@ -73,7 +73,6 @@ void Shader::ParseShader(const std::string& filePath, std::string* vertexShader,
         }
     }
     
-    std::cout << index << std::endl;
     *vertexShader = shader[0];
     *fragmentShader = shader[1];
 }
@@ -91,4 +90,7 @@ void Shader::SetUniformMat4f(const std::string &name, glm::mat4 &matrix){
     glUniformMatrix4fv(GetUniformLocation(name), 1, GL_FALSE, &matrix[0][0]);
 }
 
+glm::mat4 Shader::GetUniformMat4f(const std::string &name){
+    return glm::mat4(1.0f);
+}
 
