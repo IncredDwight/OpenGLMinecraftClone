@@ -21,6 +21,7 @@ public:
     glm::vec3 Position;
     
     GameObject(glm::vec3 position);
+    void MoveRight();
     virtual void Update(Shader& shader);
 };
 

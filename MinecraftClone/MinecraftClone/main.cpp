@@ -8,6 +8,7 @@
 #include "Camera.hpp"
 #include "Mesh.hpp"
 #include "Rectangle.hpp"
+#include "Cube.hpp"
 #include <string>
 #include <iostream>
 
@@ -30,7 +31,7 @@ int main(void)
         glfwTerminate();
         return -1;
     }
-    
+    glEnable(GL_DEPTH_TEST);
     int screenWidth, screenHeight;
     glfwGetFramebufferSize(window, &screenWidth, &screenHeight);
     
@@ -39,42 +40,20 @@ int main(void)
     glViewport(0, 0, screenWidth, screenHeight);
     glewInit();
     
-    Vertex vertices[] = {
-        Vertex(glm::vec3(0.0f,  0.0f, 0.0f), glm::vec4(0.0f, 0.5f, 0.5f, 1.0f)),
-        Vertex(glm::vec3(0.5f,  0.5f, 0.0f), glm::vec4(0.1f, 1.0f, 0.5f, 1.0f)),
-        Vertex(glm::vec3(0.5f,  0.0f, 0.0f), glm::vec4(0.1f, 0.5f, 0.5f, 1.0f)),
-        Vertex(glm::vec3(0.0f,  0.5f, 0.0f), glm::vec4(0.1f, 0.5f, 0.5f, 1.0f))
-    };
-    
-    /*float vertices[] = {
-        0.0f,  0.0f, 0.0f, 0.0f, 0.5f, 0.5f, 1.0f,
-        0.5f,  0.5f, 0.0f, 0.1f, 1.0f, 0.5f, 1.0f,
-        0.5f,  0.0f, 0.0f, 0.1f, 0.5f, 0.5f, 1.0f,
-        0.0f,  0.5f, 0.0f, 0.1f, 0.5f, 0.5f, 1.0f
-    };*/
-    
-    unsigned int indicies[] = {
-        0, 1, 2,
-        0, 1, 3
-    };
     VertexArray vertexArray(7 * sizeof(float));
-    //VertexBuffer vertexBuffer(sizeof(vertices), vertices);
-    Rectangle rectangle(glm::vec3(-0.5f, 0.0f, 0.0f));
-    Rectangle rectangle1(glm::vec3(0.5f, 0.0f, 0.0f));
     
-    //IndexBuffer indexBuffer(sizeof(indicies), indicies);
-    //Mesh mesh(verts, ind);
+    std::string shaderFilePath = "/Users/yaroslavvalchyshen/Desktop/Programming/GitHub/OpenGLMinecraftClone/MinecraftClone/MinecraftClone/resources/Shaders/Basic.shader";
     
-    //VertexArray vertexArray(7 * sizeof(float));
-    
+    Shader shader(shaderFilePath);
+    //Rectangle rectangle(glm::vec3(-0.5f, 0.0f, 0.0f));
+    //Rectangle rectangle1(glm::vec3(0.5f, 0.0f, 0.0f));
+    Cube cube(glm::vec3(-1.0f, 0.0f, -3.0f), glm::vec4(0.1f, 0.4f, 0.8f, 1.0f));
+    Cube cube1(glm::vec3(2.0f, 0.0f, -3.0f), glm::vec4(0.65f, 0.5f, 0.5f, 1.0f));
     VertexLayout layout0(0, 3, GL_FLOAT, 0);
     VertexLayout layout1(1, 4, GL_FLOAT, 3 * sizeof(float));
     vertexArray.AddLayout(layout0);
     vertexArray.AddLayout(layout1);
     
-    std::string shaderFilePath = "/Users/yaroslavvalchyshen/Desktop/Programming/GitHub/OpenGLMinecraftClone/MinecraftClone/MinecraftClone/resources/Shaders/Basic.shader";
-    
-    Shader shader(shaderFilePath);
     
     glm::mat4 model = glm::mat4(1.0f);
     glm::vec3 position = glm::vec3(0, 0, 1.5f);
@@ -86,17 +65,19 @@ int main(void)
     
     while (!glfwWindowShouldClose(window))
     {
-        model = glm::rotate(model, glm::radians(0.25f), glm::vec3(1, 1, 1));
-        shader.SetUniformMat4f("u_model", model);
-        
+        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
         rotation += 1;
         camera.Update(shader);
-        //camera.Position.z += 0.0025f;
+        camera.Position.z += 0.0025f;
         
         glClear(GL_COLOR_BUFFER_BIT);
-        rectangle.Update(shader);
-        rectangle1.Update(shader);
-        //mesh.Draw();
+   
+        cube.Update(shader);
+        vertexArray.LoadLayouts();
+        cube1.Update(shader);
+        vertexArray.LoadLayouts();
+        
+
         glfwSwapBuffers(window);
 
         glfwPollEvents();

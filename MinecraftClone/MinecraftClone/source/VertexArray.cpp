@@ -20,6 +20,9 @@ void VertexArray::UnBind(){
 
 void VertexArray::AddLayout(VertexLayout vertexLayout){
     _layouts.push_back(vertexLayout);
+}
+
+void VertexArray::LoadLayouts(){
     for (int i = 0; i < _layouts.size(); i++) {
         glEnableVertexAttribArray(_layouts[i].GetId());
         glVertexAttribPointer(_layouts[i].GetId(),
@@ -28,6 +31,5 @@ void VertexArray::AddLayout(VertexLayout vertexLayout){
                               GL_FALSE,
                               _stride,
                               (void*) _layouts[i].GetOffset());
-        
     }
 }

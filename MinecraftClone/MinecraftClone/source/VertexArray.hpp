@@ -17,6 +17,7 @@ public:
     void Bind();
     void UnBind();
     void AddLayout(VertexLayout vertexLayout);
+    void LoadLayouts();
     
 };
 

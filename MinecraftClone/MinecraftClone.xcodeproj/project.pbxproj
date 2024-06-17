@@ -19,6 +19,7 @@
 		A5CCE3252C1F8D810070A028 /* Mesh.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A5CCE3232C1F8D810070A028 /* Mesh.cpp */; };
 		A5CCE3282C1FAD2A0070A028 /* GameObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A5CCE3262C1FAD2A0070A028 /* GameObject.cpp */; };
 		A5CCE32C2C2089BD0070A028 /* Rectangle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A5CCE32A2C2089BD0070A028 /* Rectangle.cpp */; };
+		A5CCE32F2C20C1000070A028 /* Cube.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A5CCE32D2C20C1000070A028 /* Cube.cpp */; };
 		A5E412D82C0916E3003FF96F /* Shader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A5E412D62C0916E3003FF96F /* Shader.cpp */; };
 /* End PBXBuildFile section */
 
@@ -57,6 +58,8 @@
 		A5CCE3272C1FAD2A0070A028 /* GameObject.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = GameObject.hpp; sourceTree = "<group>"; };
 		A5CCE32A2C2089BD0070A028 /* Rectangle.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Rectangle.cpp; sourceTree = "<group>"; };
 		A5CCE32B2C2089BD0070A028 /* Rectangle.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Rectangle.hpp; sourceTree = "<group>"; };
+		A5CCE32D2C20C1000070A028 /* Cube.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Cube.cpp; sourceTree = "<group>"; };
+		A5CCE32E2C20C1000070A028 /* Cube.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Cube.hpp; sourceTree = "<group>"; };
 		A5E412D62C0916E3003FF96F /* Shader.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Shader.cpp; sourceTree = "<group>"; };
 		A5E412D72C0916E3003FF96F /* Shader.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Shader.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -121,6 +124,8 @@
 				A5CCE3272C1FAD2A0070A028 /* GameObject.hpp */,
 				A5CCE32A2C2089BD0070A028 /* Rectangle.cpp */,
 				A5CCE32B2C2089BD0070A028 /* Rectangle.hpp */,
+				A5CCE32D2C20C1000070A028 /* Cube.cpp */,
+				A5CCE32E2C20C1000070A028 /* Cube.hpp */,
 			);
 			path = GameObject;
 			sourceTree = "<group>";
@@ -222,6 +227,7 @@
 				A5C683F12C125C7600857C0C /* VertexArray.cpp in Sources */,
 				A5CCE3222C1F68A70070A028 /* Camera.cpp in Sources */,
 				A5CCE32C2C2089BD0070A028 /* Rectangle.cpp in Sources */,
+				A5CCE32F2C20C1000070A028 /* Cube.cpp in Sources */,
 				A546E73D2C18ADFA006FC6A1 /* IndexBuffer.cpp in Sources */,
 				A5C683F42C1260AB00857C0C /* VertexLayout.cpp in Sources */,
 				A5C853C42BCC8BE600326246 /* main.cpp in Sources */,
