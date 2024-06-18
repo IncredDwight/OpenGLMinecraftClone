@@ -31,7 +31,7 @@ int main(void)
         glfwTerminate();
         return -1;
     }
-    glEnable(GL_DEPTH_TEST);
+    
     int screenWidth, screenHeight;
     glfwGetFramebufferSize(window, &screenWidth, &screenHeight);
     
@@ -39,20 +39,26 @@ int main(void)
     glfwMakeContextCurrent(window);
     glViewport(0, 0, screenWidth, screenHeight);
     glewInit();
+    glEnable(GL_DEPTH_TEST);
     
-    VertexArray vertexArray(7 * sizeof(float));
+    VertexArray vertexArray(9 * sizeof(float));
     
     std::string shaderFilePath = "/Users/yaroslavvalchyshen/Desktop/Programming/GitHub/OpenGLMinecraftClone/MinecraftClone/MinecraftClone/resources/Shaders/Basic.shader";
     
     Shader shader(shaderFilePath);
     //Rectangle rectangle(glm::vec3(-0.5f, 0.0f, 0.0f));
     //Rectangle rectangle1(glm::vec3(0.5f, 0.0f, 0.0f));
-    Cube cube(glm::vec3(-1.0f, 0.0f, -3.0f), glm::vec4(0.1f, 0.4f, 0.8f, 1.0f));
-    Cube cube1(glm::vec3(2.0f, 0.0f, -3.0f), glm::vec4(0.65f, 0.5f, 0.5f, 1.0f));
+    CubeTextureCoord grassBlock(glm::vec2(9, 37), glm::vec2(8, 37), glm::vec2(2, 61));
+    CubeTextureCoord snowGrassBlock(glm::vec2(4, 57), glm::vec2(2, 57), glm::vec2(2, 61));
+    Cube cube(glm::vec3(-1.0f, 0.0f, -3.0f), snowGrassBlock);
+    shader.SetUniform1i("sampler", 0);//glm::vec4(0.1f, 0.4f, 0.8f, 1.0f));
     VertexLayout layout0(0, 3, GL_FLOAT, 0);
     VertexLayout layout1(1, 4, GL_FLOAT, 3 * sizeof(float));
+    VertexLayout layout2(2, 2, GL_FLOAT, 7 * sizeof(float));
     vertexArray.AddLayout(layout0);
     vertexArray.AddLayout(layout1);
+    vertexArray.AddLayout(layout2);
+    shader.SetUniform1i("sampler", 0);
     
     
     glm::mat4 model = glm::mat4(1.0f);
@@ -74,7 +80,7 @@ int main(void)
    
         cube.Update(shader);
         vertexArray.LoadLayouts();
-        cube1.Update(shader);
+        //cube1.Update(shader);
         vertexArray.LoadLayouts();
         
 

@@ -8,8 +8,8 @@ GameObject::GameObject(glm::vec3 position){
 }
 
 void GameObject::Update(Shader& shader){
-    _model = glm::translate(glm::mat4(1.0f), Position);
-    //_model = glm::rotate(_model, glm::radians(0.05f), glm::vec3(0, 1, 0));
+    //_model = glm::translate(glm::mat4(1.0f), Position);
+    _model = glm::rotate(_model, glm::radians(0.25f), glm::vec3(0, 1, 0));
     shader.SetUniformMat4f("u_model", _model);
     
     _mesh->Draw();

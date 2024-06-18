@@ -10,12 +10,19 @@
 struct Vertex{
     glm::vec3 Position;
     glm::vec4 Color;
+    glm::vec2 TextureCoord;
     
 public:
     Vertex(glm::vec3 position, glm::vec4 color){
         Position = position;
         Color = color;
     }
+    
+    Vertex(glm::vec3 position, glm::vec2 textureCoord){
+        Position = position;
+        TextureCoord = textureCoord;
+    }
+    
 };
 
 class VertexBuffer{

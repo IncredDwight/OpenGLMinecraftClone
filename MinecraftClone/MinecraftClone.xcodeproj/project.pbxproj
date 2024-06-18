@@ -20,6 +20,7 @@
 		A5CCE3282C1FAD2A0070A028 /* GameObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A5CCE3262C1FAD2A0070A028 /* GameObject.cpp */; };
 		A5CCE32C2C2089BD0070A028 /* Rectangle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A5CCE32A2C2089BD0070A028 /* Rectangle.cpp */; };
 		A5CCE32F2C20C1000070A028 /* Cube.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A5CCE32D2C20C1000070A028 /* Cube.cpp */; };
+		A5CCE3322C21F4EB0070A028 /* Texture.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A5CCE3302C21F4EB0070A028 /* Texture.cpp */; };
 		A5E412D82C0916E3003FF96F /* Shader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A5E412D62C0916E3003FF96F /* Shader.cpp */; };
 /* End PBXBuildFile section */
 
@@ -60,6 +61,11 @@
 		A5CCE32B2C2089BD0070A028 /* Rectangle.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Rectangle.hpp; sourceTree = "<group>"; };
 		A5CCE32D2C20C1000070A028 /* Cube.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Cube.cpp; sourceTree = "<group>"; };
 		A5CCE32E2C20C1000070A028 /* Cube.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Cube.hpp; sourceTree = "<group>"; };
+		A5CCE3302C21F4EB0070A028 /* Texture.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Texture.cpp; sourceTree = "<group>"; };
+		A5CCE3312C21F4EB0070A028 /* Texture.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Texture.hpp; sourceTree = "<group>"; };
+		A5CCE3332C21F64F0070A028 /* stb-master */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "stb-master"; sourceTree = "<group>"; };
+		A5CCE3352C22010C0070A028 /* TextureMap.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TextureMap.png; sourceTree = "<group>"; };
+		A5CCE3362C2202400070A028 /* Basic.shader */ = {isa = PBXFileReference; lastKnownFileType = text; path = Basic.shader; sourceTree = "<group>"; };
 		A5E412D62C0916E3003FF96F /* Shader.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Shader.cpp; sourceTree = "<group>"; };
 		A5E412D72C0916E3003FF96F /* Shader.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Shader.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -130,9 +136,18 @@
 			path = GameObject;
 			sourceTree = "<group>";
 		};
+		A5CCE3342C2200BC0070A028 /* Textures */ = {
+			isa = PBXGroup;
+			children = (
+				A5CCE3352C22010C0070A028 /* TextureMap.png */,
+			);
+			path = Textures;
+			sourceTree = "<group>";
+		};
 		A5E412D42C0916C1003FF96F /* resources */ = {
 			isa = PBXGroup;
 			children = (
+				A5CCE3342C2200BC0070A028 /* Textures */,
 				A5E412D92C0CED9F003FF96F /* Shaders */,
 			);
 			path = resources;
@@ -141,6 +156,7 @@
 		A5E412D52C0916CA003FF96F /* source */ = {
 			isa = PBXGroup;
 			children = (
+				A5CCE3332C21F64F0070A028 /* stb-master */,
 				A5CCE3292C1FAE640070A028 /* GameObject */,
 				A546E73E2C18C021006FC6A1 /* glm */,
 				A5E412D62C0916E3003FF96F /* Shader.cpp */,
@@ -155,6 +171,8 @@
 				A546E73C2C18ADFA006FC6A1 /* IndexBuffer.hpp */,
 				A5CCE3202C1F68A70070A028 /* Camera.cpp */,
 				A5CCE3212C1F68A70070A028 /* Camera.hpp */,
+				A5CCE3302C21F4EB0070A028 /* Texture.cpp */,
+				A5CCE3312C21F4EB0070A028 /* Texture.hpp */,
 			);
 			path = source;
 			sourceTree = "<group>";
@@ -162,6 +180,7 @@
 		A5E412D92C0CED9F003FF96F /* Shaders */ = {
 			isa = PBXGroup;
 			children = (
+				A5CCE3362C2202400070A028 /* Basic.shader */,
 			);
 			path = Shaders;
 			sourceTree = "<group>";
@@ -232,6 +251,7 @@
 				A5C683F42C1260AB00857C0C /* VertexLayout.cpp in Sources */,
 				A5C853C42BCC8BE600326246 /* main.cpp in Sources */,
 				A5CCE3252C1F8D810070A028 /* Mesh.cpp in Sources */,
+				A5CCE3322C21F4EB0070A028 /* Texture.cpp in Sources */,
 				A529C3692C1236E90047C751 /* VertexBuffer.cpp in Sources */,
 				A5CCE3282C1FAD2A0070A028 /* GameObject.cpp in Sources */,
 			);
