@@ -13,14 +13,14 @@ private:
     const float NEAR_PLANE = 0.1f;
     const float FAR_PLANE = 100.0f;
     const glm::vec3 UP_DIRECTION = glm::vec3(0, 1, 0);
-    
-    glm::vec3 _orientation = glm::vec3(0, 0, -1);
 
 public:
     glm::vec3 Position;
+    glm::vec3 Orientation = glm::vec3(0, 0, -1);
     
     Camera(glm::vec3 position, float fov, Shader& shader);
     
+    void SetOrientation(glm::vec3 orientation);
     void Update(Shader& shader);
 };
 #endif

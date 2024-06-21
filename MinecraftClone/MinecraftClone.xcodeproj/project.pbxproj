@@ -9,7 +9,10 @@
 /* Begin PBXBuildFile section */
 		A5260E0F2C10D06A0072EDC9 /* libGLEW.2.2.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A5260E0E2C10D06A0072EDC9 /* libGLEW.2.2.0.dylib */; };
 		A529C3692C1236E90047C751 /* VertexBuffer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A529C3672C1236E90047C751 /* VertexBuffer.cpp */; };
+		A530D0992C222E8500DCA6ED /* CameraMovement.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A530D0972C222E8500DCA6ED /* CameraMovement.cpp */; };
+		A530D09C2C232D5D00DCA6ED /* CameraRotation.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A530D09A2C232D5D00DCA6ED /* CameraRotation.cpp */; };
 		A546E73D2C18ADFA006FC6A1 /* IndexBuffer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A546E73B2C18ADFA006FC6A1 /* IndexBuffer.cpp */; };
+		A5C090012C24BB130012A479 /* MouseInput.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A5C08FFF2C24BB130012A479 /* MouseInput.cpp */; };
 		A5C683F12C125C7600857C0C /* VertexArray.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A5C683EF2C125C7600857C0C /* VertexArray.cpp */; };
 		A5C683F42C1260AB00857C0C /* VertexLayout.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A5C683F22C1260AB00857C0C /* VertexLayout.cpp */; };
 		A5C853C42BCC8BE600326246 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A5C853C32BCC8BE600326246 /* main.cpp */; };
@@ -40,9 +43,15 @@
 		A5260E0E2C10D06A0072EDC9 /* libGLEW.2.2.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libGLEW.2.2.0.dylib; path = ../../../../../../../opt/homebrew/Cellar/glew/2.2.0_1/lib/libGLEW.2.2.0.dylib; sourceTree = "<group>"; };
 		A529C3672C1236E90047C751 /* VertexBuffer.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = VertexBuffer.cpp; sourceTree = "<group>"; };
 		A529C3682C1236E90047C751 /* VertexBuffer.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = VertexBuffer.hpp; sourceTree = "<group>"; };
+		A530D0972C222E8500DCA6ED /* CameraMovement.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = CameraMovement.cpp; sourceTree = "<group>"; };
+		A530D0982C222E8500DCA6ED /* CameraMovement.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = CameraMovement.hpp; sourceTree = "<group>"; };
+		A530D09A2C232D5D00DCA6ED /* CameraRotation.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = CameraRotation.cpp; sourceTree = "<group>"; };
+		A530D09B2C232D5D00DCA6ED /* CameraRotation.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = CameraRotation.hpp; sourceTree = "<group>"; };
 		A546E73B2C18ADFA006FC6A1 /* IndexBuffer.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = IndexBuffer.cpp; sourceTree = "<group>"; };
 		A546E73C2C18ADFA006FC6A1 /* IndexBuffer.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = IndexBuffer.hpp; sourceTree = "<group>"; };
 		A546E73E2C18C021006FC6A1 /* glm */ = {isa = PBXFileReference; lastKnownFileType = folder; path = glm; sourceTree = "<group>"; };
+		A5C08FFF2C24BB130012A479 /* MouseInput.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = MouseInput.cpp; sourceTree = "<group>"; };
+		A5C090002C24BB130012A479 /* MouseInput.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = MouseInput.hpp; sourceTree = "<group>"; };
 		A5C683EF2C125C7600857C0C /* VertexArray.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = VertexArray.cpp; sourceTree = "<group>"; };
 		A5C683F02C125C7600857C0C /* VertexArray.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = VertexArray.hpp; sourceTree = "<group>"; };
 		A5C683F22C1260AB00857C0C /* VertexLayout.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = VertexLayout.cpp; sourceTree = "<group>"; };
@@ -173,6 +182,12 @@
 				A5CCE3212C1F68A70070A028 /* Camera.hpp */,
 				A5CCE3302C21F4EB0070A028 /* Texture.cpp */,
 				A5CCE3312C21F4EB0070A028 /* Texture.hpp */,
+				A530D0972C222E8500DCA6ED /* CameraMovement.cpp */,
+				A530D0982C222E8500DCA6ED /* CameraMovement.hpp */,
+				A530D09A2C232D5D00DCA6ED /* CameraRotation.cpp */,
+				A530D09B2C232D5D00DCA6ED /* CameraRotation.hpp */,
+				A5C08FFF2C24BB130012A479 /* MouseInput.cpp */,
+				A5C090002C24BB130012A479 /* MouseInput.hpp */,
 			);
 			path = source;
 			sourceTree = "<group>";
@@ -244,15 +259,18 @@
 			files = (
 				A5E412D82C0916E3003FF96F /* Shader.cpp in Sources */,
 				A5C683F12C125C7600857C0C /* VertexArray.cpp in Sources */,
+				A5C090012C24BB130012A479 /* MouseInput.cpp in Sources */,
 				A5CCE3222C1F68A70070A028 /* Camera.cpp in Sources */,
 				A5CCE32C2C2089BD0070A028 /* Rectangle.cpp in Sources */,
 				A5CCE32F2C20C1000070A028 /* Cube.cpp in Sources */,
 				A546E73D2C18ADFA006FC6A1 /* IndexBuffer.cpp in Sources */,
+				A530D09C2C232D5D00DCA6ED /* CameraRotation.cpp in Sources */,
 				A5C683F42C1260AB00857C0C /* VertexLayout.cpp in Sources */,
 				A5C853C42BCC8BE600326246 /* main.cpp in Sources */,
 				A5CCE3252C1F8D810070A028 /* Mesh.cpp in Sources */,
 				A5CCE3322C21F4EB0070A028 /* Texture.cpp in Sources */,
 				A529C3692C1236E90047C751 /* VertexBuffer.cpp in Sources */,
+				A530D0992C222E8500DCA6ED /* CameraMovement.cpp in Sources */,
 				A5CCE3282C1FAD2A0070A028 /* GameObject.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

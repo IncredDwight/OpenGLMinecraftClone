@@ -12,7 +12,7 @@ class Mesh{
 private:
     std::vector<Vertex> _vertices;
     std::vector<unsigned int> _indices;
-    Texture* _texture;
+    //Texture* _texture;
     
     VertexBuffer* _vertexBuffer;
     IndexBuffer* _indexBuffer;

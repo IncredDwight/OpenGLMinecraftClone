@@ -1,5 +1,7 @@
 
 #include "Camera.hpp"
+#include <string>
+#include <iostream>
 
 Camera::Camera(glm::vec3 position, float fov, Shader& shader){
     Position = position;
@@ -10,7 +12,9 @@ Camera::Camera(glm::vec3 position, float fov, Shader& shader){
 }
 
 void Camera::Update(Shader& shader){
-    glm::mat4 view = glm::lookAt(Position, Position + _orientation, UP_DIRECTION);
+    glm::mat4 view = glm::lookAt(Position, Position + Orientation, UP_DIRECTION);
+    
+    //std::cout << (Position + _orientation).x <<" "<< (Position + _orientation).y <<" "<< (Position + _orientation).z << std::endl;
     
     shader.SetUniformMat4f("u_view", view);
 }

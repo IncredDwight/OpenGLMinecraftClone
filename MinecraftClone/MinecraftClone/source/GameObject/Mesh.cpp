@@ -8,7 +8,7 @@ Mesh::Mesh(std::vector<Vertex> vertices, std::vector<unsigned int> indices, cons
     
     _vertexBuffer = new VertexBuffer(sizeof(Vertex) * vertices.size(), &vertices[0]);
     _indexBuffer = new IndexBuffer(sizeof(unsigned int) * indices.size(), &indices[0]);
-    _texture = new Texture(fileName, GL_TEXTURE_2D);
+    //_texture = new Texture(fileName, GL_TEXTURE_2D);
 }
 
 void Mesh::Draw(){
