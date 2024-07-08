@@ -10,12 +10,11 @@ class IndexBuffer{
 public:
     IndexBuffer(unsigned long size, void* data);
     ~IndexBuffer();
+    void Bind();
+    void UnBind();
 
 private:
     unsigned int _id;
-    
-    void Bind();
-    void UnBind();
 };
 
 #endif

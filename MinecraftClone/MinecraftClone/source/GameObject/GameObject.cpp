@@ -14,8 +14,3 @@ void GameObject::Update(Shader& shader){
     
     _mesh->Draw();
 }
-
-void GameObject::MoveRight(){
-    Position.x += 0.0005f;
-    Position.y -= 0.0005f;
-}

@@ -13,6 +13,7 @@
 		A530D09C2C232D5D00DCA6ED /* CameraRotation.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A530D09A2C232D5D00DCA6ED /* CameraRotation.cpp */; };
 		A546E73D2C18ADFA006FC6A1 /* IndexBuffer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A546E73B2C18ADFA006FC6A1 /* IndexBuffer.cpp */; };
 		A5C090012C24BB130012A479 /* MouseInput.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A5C08FFF2C24BB130012A479 /* MouseInput.cpp */; };
+		A5C090052C25E9FF0012A479 /* BatchRenderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A5C090032C25E9FF0012A479 /* BatchRenderer.cpp */; };
 		A5C683F12C125C7600857C0C /* VertexArray.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A5C683EF2C125C7600857C0C /* VertexArray.cpp */; };
 		A5C683F42C1260AB00857C0C /* VertexLayout.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A5C683F22C1260AB00857C0C /* VertexLayout.cpp */; };
 		A5C853C42BCC8BE600326246 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A5C853C32BCC8BE600326246 /* main.cpp */; };
@@ -52,6 +53,8 @@
 		A546E73E2C18C021006FC6A1 /* glm */ = {isa = PBXFileReference; lastKnownFileType = folder; path = glm; sourceTree = "<group>"; };
 		A5C08FFF2C24BB130012A479 /* MouseInput.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = MouseInput.cpp; sourceTree = "<group>"; };
 		A5C090002C24BB130012A479 /* MouseInput.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = MouseInput.hpp; sourceTree = "<group>"; };
+		A5C090032C25E9FF0012A479 /* BatchRenderer.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = BatchRenderer.cpp; sourceTree = "<group>"; };
+		A5C090042C25E9FF0012A479 /* BatchRenderer.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = BatchRenderer.hpp; sourceTree = "<group>"; };
 		A5C683EF2C125C7600857C0C /* VertexArray.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = VertexArray.cpp; sourceTree = "<group>"; };
 		A5C683F02C125C7600857C0C /* VertexArray.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = VertexArray.hpp; sourceTree = "<group>"; };
 		A5C683F22C1260AB00857C0C /* VertexLayout.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = VertexLayout.cpp; sourceTree = "<group>"; };
@@ -93,6 +96,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A5C090022C25E8F40012A479 /* Camera */ = {
+			isa = PBXGroup;
+			children = (
+				A5CCE3202C1F68A70070A028 /* Camera.cpp */,
+				A5CCE3212C1F68A70070A028 /* Camera.hpp */,
+				A530D0972C222E8500DCA6ED /* CameraMovement.cpp */,
+				A530D0982C222E8500DCA6ED /* CameraMovement.hpp */,
+				A530D09A2C232D5D00DCA6ED /* CameraRotation.cpp */,
+				A530D09B2C232D5D00DCA6ED /* CameraRotation.hpp */,
+				A5C08FFF2C24BB130012A479 /* MouseInput.cpp */,
+				A5C090002C24BB130012A479 /* MouseInput.hpp */,
+			);
+			path = Camera;
+			sourceTree = "<group>";
+		};
 		A5C853B72BCC8BE600326246 = {
 			isa = PBXGroup;
 			children = (
@@ -165,6 +183,7 @@
 		A5E412D52C0916CA003FF96F /* source */ = {
 			isa = PBXGroup;
 			children = (
+				A5C090022C25E8F40012A479 /* Camera */,
 				A5CCE3332C21F64F0070A028 /* stb-master */,
 				A5CCE3292C1FAE640070A028 /* GameObject */,
 				A546E73E2C18C021006FC6A1 /* glm */,
@@ -178,16 +197,10 @@
 				A5C683F32C1260AB00857C0C /* VertexLayout.hpp */,
 				A546E73B2C18ADFA006FC6A1 /* IndexBuffer.cpp */,
 				A546E73C2C18ADFA006FC6A1 /* IndexBuffer.hpp */,
-				A5CCE3202C1F68A70070A028 /* Camera.cpp */,
-				A5CCE3212C1F68A70070A028 /* Camera.hpp */,
 				A5CCE3302C21F4EB0070A028 /* Texture.cpp */,
 				A5CCE3312C21F4EB0070A028 /* Texture.hpp */,
-				A530D0972C222E8500DCA6ED /* CameraMovement.cpp */,
-				A530D0982C222E8500DCA6ED /* CameraMovement.hpp */,
-				A530D09A2C232D5D00DCA6ED /* CameraRotation.cpp */,
-				A530D09B2C232D5D00DCA6ED /* CameraRotation.hpp */,
-				A5C08FFF2C24BB130012A479 /* MouseInput.cpp */,
-				A5C090002C24BB130012A479 /* MouseInput.hpp */,
+				A5C090032C25E9FF0012A479 /* BatchRenderer.cpp */,
+				A5C090042C25E9FF0012A479 /* BatchRenderer.hpp */,
 			);
 			path = source;
 			sourceTree = "<group>";
@@ -268,6 +281,7 @@
 				A5C683F42C1260AB00857C0C /* VertexLayout.cpp in Sources */,
 				A5C853C42BCC8BE600326246 /* main.cpp in Sources */,
 				A5CCE3252C1F8D810070A028 /* Mesh.cpp in Sources */,
+				A5C090052C25E9FF0012A479 /* BatchRenderer.cpp in Sources */,
 				A5CCE3322C21F4EB0070A028 /* Texture.cpp in Sources */,
 				A529C3692C1236E90047C751 /* VertexBuffer.cpp in Sources */,
 				A530D0992C222E8500DCA6ED /* CameraMovement.cpp in Sources */,

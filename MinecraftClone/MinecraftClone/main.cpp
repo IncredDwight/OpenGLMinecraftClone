@@ -13,14 +13,9 @@
 #include "CameraMovement.hpp"
 #include "CameraRotation.hpp"
 #include "MouseInput.hpp"
+#include "BatchRenderer.hpp"
 #include <string>
 #include <iostream>
-
-static void mouse();
-
-static void mouse(){
-   // cameraRotation.GetInput(window);
-}
 
 int main(void)
 {
@@ -59,7 +54,7 @@ int main(void)
     CubeTextureCoord grassBlock(glm::vec2(9, 37), glm::vec2(8, 37), glm::vec2(2, 61));
     CubeTextureCoord snowGrassBlock(glm::vec2(4, 57), glm::vec2(2, 57), glm::vec2(2, 61));
     Cube cube(glm::vec3(-1.5f, 0.0f, -3.0f), snowGrassBlock);
-    Cube cube1(glm::vec3(1.5f, 0.0f, -3.0f), snowGrassBlock);
+    //Cube cube1(glm::vec3(1.5f, 0.0f, -3.0f), snowGrassBlock);
     shader.SetUniform1i("sampler", 0);
     VertexLayout layout0(0, 3, GL_FLOAT, 0);
     VertexLayout layout1(1, 4, GL_FLOAT, 3 * sizeof(float));
@@ -85,25 +80,31 @@ int main(void)
     
     shader.SetUniformMat4f("u_model", model);
     
-    float rotation = 0;
-    
-    CameraMovement cameraMovement(0.25f, window, &camera);
+    CameraMovement cameraMovement(2, window, &camera);
     CameraRotation cameraRotation(&camera);
     
     glfwSetCursorPosCallback(window, MouseInput::GetInput);
     
+    BatchRenderer::Init();
+    //cube.GetVertices(grassBlock);
     
+    //Cube::GetVertices(snowGrassBlock);
+    std::vector<Vertex> verticies = Cube::GetVerticies(snowGrassBlock);
+    
+   // BatchRenderer::Draw(glm::vec3(0, 0, 0), verticies);
+    
+    
+    std::vector<Vertex> verticies0 = Cube::GetVerticies(grassBlock);
     while (!glfwWindowShouldClose(window))
     {
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-        rotation += 1;
         camera.Update(shader);
         
         glClear(GL_COLOR_BUFFER_BIT);
-   
-        cube.Update(shader);
+        shader.SetUniformMat4f("u_model", model);
+        /*cube.Update(shader);
         vertexArray.LoadLayouts();
-        cube1.Update(shader);
+        cube1.Update(shader);*/
         vertexArray.LoadLayouts();
         
         cameraMovement.MoveRight();
@@ -112,10 +113,22 @@ int main(void)
         cameraMovement.MoveBackwards();
         cameraRotation.Rotate();
         
-        for (int i = 0; i < _cubes.size(); i++) {
-            _cubes[i].Update(shader);
+        vertexArray.Bind();
+        vertexArray.LoadLayouts();
+        
+        vertexArray.LoadLayouts();
+        //BatchRenderer::Update();
+        
+        for (int x = 0; x < 50; x++) {
+            for (int z = 0; z < 50; z++) {
+                for (int y = 0; y < 50; y++) {
+                    BatchRenderer::Draw(glm::vec3(x, y, z), verticies0);
+                }
+            }
         }
-
+        for (int i = 0; i < _cubes.size(); i++) {
+            //_cubes[i].Update(shader);
+        }
         glfwSwapBuffers(window);
 
         glfwPollEvents();

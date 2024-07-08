@@ -3,6 +3,7 @@
 #define Cube_hpp
 
 #include <stdio.h>
+#include <vector>
 #include "GameObject.hpp"
 
 struct CubeTextureCoord{
@@ -26,6 +27,7 @@ class Cube : public GameObject{
 public:
     Cube(glm::vec3 position, glm::vec4 color);
     Cube(glm::vec3 positiom, CubeTextureCoord textureCoord);
+    static std::vector<Vertex> GetVerticies(CubeTextureCoord textureCoord);
 };
 
 #endif
