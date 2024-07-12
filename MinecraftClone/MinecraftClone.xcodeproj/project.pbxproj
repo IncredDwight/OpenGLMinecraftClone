@@ -26,6 +26,7 @@
 		A5CCE32F2C20C1000070A028 /* Cube.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A5CCE32D2C20C1000070A028 /* Cube.cpp */; };
 		A5CCE3322C21F4EB0070A028 /* Texture.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A5CCE3302C21F4EB0070A028 /* Texture.cpp */; };
 		A5E412D82C0916E3003FF96F /* Shader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A5E412D62C0916E3003FF96F /* Shader.cpp */; };
+		A5F26D8E2C3ED823005A336A /* SimplexNoise.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A5F26D8C2C3ED823005A336A /* SimplexNoise.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -80,6 +81,8 @@
 		A5CCE3362C2202400070A028 /* Basic.shader */ = {isa = PBXFileReference; lastKnownFileType = text; path = Basic.shader; sourceTree = "<group>"; };
 		A5E412D62C0916E3003FF96F /* Shader.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Shader.cpp; sourceTree = "<group>"; };
 		A5E412D72C0916E3003FF96F /* Shader.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Shader.hpp; sourceTree = "<group>"; };
+		A5F26D8C2C3ED823005A336A /* SimplexNoise.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SimplexNoise.cpp; sourceTree = "<group>"; };
+		A5F26D8D2C3ED823005A336A /* SimplexNoise.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimplexNoise.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -183,6 +186,8 @@
 		A5E412D52C0916CA003FF96F /* source */ = {
 			isa = PBXGroup;
 			children = (
+				A5F26D8C2C3ED823005A336A /* SimplexNoise.cpp */,
+				A5F26D8D2C3ED823005A336A /* SimplexNoise.h */,
 				A5C090022C25E8F40012A479 /* Camera */,
 				A5CCE3332C21F64F0070A028 /* stb-master */,
 				A5CCE3292C1FAE640070A028 /* GameObject */,
@@ -276,6 +281,7 @@
 				A5CCE3222C1F68A70070A028 /* Camera.cpp in Sources */,
 				A5CCE32C2C2089BD0070A028 /* Rectangle.cpp in Sources */,
 				A5CCE32F2C20C1000070A028 /* Cube.cpp in Sources */,
+				A5F26D8E2C3ED823005A336A /* SimplexNoise.cpp in Sources */,
 				A546E73D2C18ADFA006FC6A1 /* IndexBuffer.cpp in Sources */,
 				A530D09C2C232D5D00DCA6ED /* CameraRotation.cpp in Sources */,
 				A5C683F42C1260AB00857C0C /* VertexLayout.cpp in Sources */,

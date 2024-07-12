@@ -14,6 +14,7 @@
 #include "CameraRotation.hpp"
 #include "MouseInput.hpp"
 #include "BatchRenderer.hpp"
+#include "SimplexNoise.h"
 #include <string>
 #include <iostream>
 
@@ -53,6 +54,10 @@ int main(void)
     Shader shader(shaderFilePath);
     CubeTextureCoord grassBlock(glm::vec2(9, 37), glm::vec2(8, 37), glm::vec2(2, 61));
     CubeTextureCoord snowGrassBlock(glm::vec2(4, 57), glm::vec2(2, 57), glm::vec2(2, 61));
+    
+    CubeTextureCoord dirtBlock(glm::vec2(2, 61), glm::vec2(2, 61), glm::vec2(2, 61));
+    CubeTextureCoord stoneBlock(glm::vec2(1, 61), glm::vec2(1, 61), glm::vec2(1, 61));
+    
     Cube cube(glm::vec3(-1.5f, 0.0f, -3.0f), snowGrassBlock);
     //Cube cube1(glm::vec3(1.5f, 0.0f, -3.0f), snowGrassBlock);
     shader.SetUniform1i("sampler", 0);
@@ -86,15 +91,43 @@ int main(void)
     glfwSetCursorPosCallback(window, MouseInput::GetInput);
     
     BatchRenderer::Init();
-    //cube.GetVertices(grassBlock);
-    
-    //Cube::GetVertices(snowGrassBlock);
     std::vector<Vertex> verticies = Cube::GetVerticies(snowGrassBlock);
     
-   // BatchRenderer::Draw(glm::vec3(0, 0, 0), verticies);
-    
+    /*for (int x = 0; x < 50; x++) {
+            for (int z = 0; z < 50; z++) {
+                CubeTextureCoord* texture = nullptr;
+                
+                float noise = SimplexNoise::noise(x * scale + offset.x, z * scale + offset.y);
+                
+                if(noise >= 0.5f){
+                    texture = &snowGrassBlock;
+                }
+                else if(noise >= -0.2f)
+                {
+                    texture = &grassBlock;
+                }
+                else if(noise >= -0.5f)
+                {
+                    texture = &dirtBlock;
+                }
+                else
+                    texture = &stoneBlock;
+                cube.push_back({glm::vec3(x, (int)(noise * 10), z), *texture});
+                for (int y = -12; y < (int)(noise * 10); y++) {
+                    cube.push_back({glm::vec3(x, y, z), (noise - y <= 5) ? dirtBlock : stoneBlock});
+                }
+                
+            }
+        }
+    */
     
     std::vector<Vertex> verticies0 = Cube::GetVerticies(grassBlock);
+    std::vector<Vertex> verticies1 = Cube::GetVerticies(snowGrassBlock);
+    std::vector<Vertex> dirtVerticies = Cube::GetVerticies(dirtBlock);
+    std::vector<Vertex> stoneVerticies = Cube::GetVerticies(stoneBlock);
+    std::vector<Vertex> assignedVerticies = verticies0;
+    float scale = 0.025f;
+    glm::vec2 offset = glm::vec2(0.1f, 0.1f);
     while (!glfwWindowShouldClose(window))
     {
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
@@ -119,16 +152,45 @@ int main(void)
         vertexArray.LoadLayouts();
         //BatchRenderer::Update();
         
+        //scale *= 1.0005;
+        
+        //offset = glm::vec2(offset.x + 0.0005f, offset.y + 0.0005f);
+        
+        if(glfwGetKey(window, GLFW_KEY_RIGHT) == GLFW_PRESS)
+            offset = glm::vec2(offset.x + 0.05f, offset.y);
+        if(glfwGetKey(window, GLFW_KEY_LEFT) == GLFW_PRESS)
+            offset = glm::vec2(offset.x - 0.05f, offset.y);
+        if(glfwGetKey(window, GLFW_KEY_UP) == GLFW_PRESS)
+            offset = glm::vec2(offset.x, offset.y + 0.05f);
+        if(glfwGetKey(window, GLFW_KEY_DOWN) == GLFW_PRESS)
+            offset = glm::vec2(offset.x, offset.y - 0.05f);
+        if(glfwGetKey(window, GLFW_KEY_Q) == GLFW_PRESS)
+            scale -= 0.0005f;
+        if(glfwGetKey(window, GLFW_KEY_E) == GLFW_PRESS)
+            scale += 0.0005f;
+        
         for (int x = 0; x < 50; x++) {
             for (int z = 0; z < 50; z++) {
-                for (int y = 0; y < 50; y++) {
-                    BatchRenderer::Draw(glm::vec3(x, y, z), verticies0);
-                }
+                BatchRenderer::Draw(glm::vec3(x, -10, z), stoneVerticies);
             }
         }
-        for (int i = 0; i < _cubes.size(); i++) {
-            //_cubes[i].Update(shader);
+        
+        for (int x = 0; x < 50; x++) {
+            for (int z = 0; z < 50; z++) {
+                float noise = SimplexNoise::noise(x * scale + offset.x, z * scale + offset.y);
+                assignedVerticies = verticies0;
+                if(noise >= 0.5f)
+                    assignedVerticies = verticies1;
+                
+                
+                BatchRenderer::Draw(glm::vec3(x, (int)(noise * 10), z), assignedVerticies);
+                
+                for (int y = -10; y < (int)(noise * 10); y++)
+                    BatchRenderer::Draw(glm::vec3(x, y, z), dirtVerticies);
+                
+            }
         }
+        
         glfwSwapBuffers(window);
 
         glfwPollEvents();

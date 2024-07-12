@@ -3,7 +3,7 @@
 #include <iostream>
 #include <string>
 
-static size_t CubeCount = 25000;
+static size_t CubeCount = 200;
 static size_t VertexCubeCount = CubeCount * 21;
 static size_t MaxIndicesCubeCount = CubeCount * 36;
 static uint32_t IndexCount;
@@ -87,7 +87,7 @@ void BatchRenderer::Draw(glm::vec3 worldPosition, std::vector<Vertex>& verticies
     }
     
     for (int i = 0; i < verticies.size(); i++) {
-        _vertexPointer->Position = verticies[i].Position + glm::vec3(worldPosition.x, 2 * worldPosition.y, worldPosition.z);
+        _vertexPointer->Position = verticies[i].Position + glm::vec3(2 * worldPosition.x, 2 * worldPosition.y, 2 * worldPosition.z);
         _vertexPointer->TextureCoord = verticies[i].TextureCoord;
         _vertexPointer++;
     }
