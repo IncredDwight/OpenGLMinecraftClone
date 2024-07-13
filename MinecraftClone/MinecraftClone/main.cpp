@@ -46,7 +46,7 @@ int main(void)
     glewInit();
     glEnable(GL_DEPTH_TEST);
     
-    VertexArray vertexArray(9 * sizeof(float));
+    VertexArray vertexArray(12 * sizeof(float));
     
     std::string shaderFilePath = "/Users/yaroslavvalchyshen/Desktop/Programming/GitHub/OpenGLMinecraftClone/MinecraftClone/MinecraftClone/resources/Shaders/Basic.shader";
     std::string textureFilePath = "/Users/yaroslavvalchyshen/Desktop/Programming/GitHub/OpenGLMinecraftClone/MinecraftClone/MinecraftClone/resources/Textures/TextureMap.png";
@@ -57,6 +57,8 @@ int main(void)
     
     CubeTextureCoord dirtBlock(glm::vec2(2, 61), glm::vec2(2, 61), glm::vec2(2, 61));
     CubeTextureCoord stoneBlock(glm::vec2(1, 61), glm::vec2(1, 61), glm::vec2(1, 61));
+    
+    CubeTextureCoord iceBlock(glm::vec2(6, 36), glm::vec2(6, 36), glm::vec2(6, 36));
     
     Cube cube(glm::vec3(-1.5f, 0.0f, -3.0f), snowGrassBlock);
     //Cube cube1(glm::vec3(1.5f, 0.0f, -3.0f), snowGrassBlock);
@@ -93,38 +95,11 @@ int main(void)
     BatchRenderer::Init();
     std::vector<Vertex> verticies = Cube::GetVerticies(snowGrassBlock);
     
-    /*for (int x = 0; x < 50; x++) {
-            for (int z = 0; z < 50; z++) {
-                CubeTextureCoord* texture = nullptr;
-                
-                float noise = SimplexNoise::noise(x * scale + offset.x, z * scale + offset.y);
-                
-                if(noise >= 0.5f){
-                    texture = &snowGrassBlock;
-                }
-                else if(noise >= -0.2f)
-                {
-                    texture = &grassBlock;
-                }
-                else if(noise >= -0.5f)
-                {
-                    texture = &dirtBlock;
-                }
-                else
-                    texture = &stoneBlock;
-                cube.push_back({glm::vec3(x, (int)(noise * 10), z), *texture});
-                for (int y = -12; y < (int)(noise * 10); y++) {
-                    cube.push_back({glm::vec3(x, y, z), (noise - y <= 5) ? dirtBlock : stoneBlock});
-                }
-                
-            }
-        }
-    */
-    
     std::vector<Vertex> verticies0 = Cube::GetVerticies(grassBlock);
     std::vector<Vertex> verticies1 = Cube::GetVerticies(snowGrassBlock);
     std::vector<Vertex> dirtVerticies = Cube::GetVerticies(dirtBlock);
     std::vector<Vertex> stoneVerticies = Cube::GetVerticies(stoneBlock);
+    std::vector<Vertex> iceVerticies = Cube::GetVerticies(iceBlock);
     std::vector<Vertex> assignedVerticies = verticies0;
     float scale = 0.025f;
     glm::vec2 offset = glm::vec2(0.1f, 0.1f);
@@ -171,7 +146,7 @@ int main(void)
         
         for (int x = 0; x < 50; x++) {
             for (int z = 0; z < 50; z++) {
-                BatchRenderer::Draw(glm::vec3(x, -10, z), stoneVerticies);
+                BatchRenderer::Draw(glm::vec3(x, -10, z), iceVerticies);
             }
         }
         
@@ -181,6 +156,8 @@ int main(void)
                 assignedVerticies = verticies0;
                 if(noise >= 0.5f)
                     assignedVerticies = verticies1;
+                else if(noise <= -0.5f)
+                    assignedVerticies = iceVerticies;
                 
                 
                 BatchRenderer::Draw(glm::vec3(x, (int)(noise * 10), z), assignedVerticies);

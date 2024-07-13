@@ -12,21 +12,31 @@ struct Vertex{
     glm::vec3 Position;
     glm::vec4 Color;
     glm::vec2 TextureCoord;
+    glm::vec3 Normal;
     
 public:
     Vertex(glm::vec3 position, glm::vec4 color){
         Position = position;
         Color = color;
+        Normal = glm::vec3(0, 0, 0);
     }
     
     Vertex(glm::vec3 position, glm::vec2 textureCoord){
         Position = position;
         TextureCoord = textureCoord;
+        Normal = glm::vec3(0, 0, 0);
+    }
+    
+    Vertex(glm::vec3 position, glm::vec2 textureCoord, glm::vec3 normal){
+        Position = position;
+        TextureCoord = textureCoord;
+        Normal = normal;
     }
     
     Vertex(){
         Position = glm::vec3(0, 0, 0);
         TextureCoord = glm::vec2(0, 0);
+        Normal = glm::vec3(0, 0, 0);
     }
     
     void Display(){

@@ -4,8 +4,8 @@
 Cube::Cube(glm::vec3 position, glm::vec4 color) : GameObject(position){
     
     Vertex vertices[] = {
-        Vertex{glm::vec3(-1.0f, -1.0f, -1.0f), color},//sideCoord.x * textureUnit.x, sideCoord.y * textureUnit.y,
-        Vertex{glm::vec3(1.0f, -1.0f, -1.0f),  color},//        textureUnit.x * (sideCoord.x + 1), sideCoord.y * textureUnit.y,
+        Vertex{glm::vec3(-1.0f, -1.0f, -1.0f), color, glm::vec3(-1.0f, 0.0f, 0.0f)},
+        Vertex{glm::vec3(1.0f, -1.0f, -1.0f),  color, glm::vec3(1.0f, 0.0f, 0.0f)},
         Vertex{glm::vec3(1.0f,  1.0f, -1.0f),  color},//        textureUnit.x * (sideCoord.x + 1), textureUnit.y * (sideCoord.y + 1),
         Vertex{glm::vec3(-1.0f,  1.0f, -1.0f), color},//        sideCoord.x * textureUnit.x, textureUnit.y * (sideCoord.y + 1),
 
@@ -56,32 +56,70 @@ Cube::Cube(glm::vec3 position, CubeTextureCoord textureCoord) : GameObject(posit
     glm::vec2 btmCoord = textureCoord.btmCoord;
     
     Vertex vertices[] = {
-        Vertex{glm::vec3(-1.0f, -1.0f, -1.0f), glm::vec2(sideCoord.x * textureUnit.x, sideCoord.y * textureUnit.y)},
-        Vertex{glm::vec3(1.0f, -1.0f, -1.0f),  glm::vec2(textureUnit.x * (sideCoord.x + 1), sideCoord.y * textureUnit.y)},
-        Vertex{glm::vec3(1.0f,  1.0f, -1.0f),  glm::vec2(textureUnit.x * (sideCoord.x + 1), textureUnit.y * (sideCoord.y + 1))},
-        Vertex{glm::vec3(-1.0f,  1.0f, -1.0f), glm::vec2(sideCoord.x * textureUnit.x, textureUnit.y * (sideCoord.y + 1))},
+        Vertex{glm::vec3(-1.0f, -1.0f, -1.0f), glm::vec2(sideCoord.x * textureUnit.x, sideCoord.y * textureUnit.y), glm::vec3(-1.0f, 0.0f, 0.0f)},
+        Vertex{glm::vec3(1.0f, -1.0f, -1.0f),  glm::vec2(textureUnit.x * (sideCoord.x + 1), sideCoord.y * textureUnit.y), glm::vec3(1.0f, 0.0f, 0.0f)},
+        Vertex{glm::vec3(1.0f,  1.0f, -1.0f),  glm::vec2(textureUnit.x * (sideCoord.x + 1), textureUnit.y * (sideCoord.y + 1)),
+            glm::vec3(0.0f, 0.0f, -1.0f)
+        },
+        Vertex{glm::vec3(-1.0f,  1.0f, -1.0f), glm::vec2(sideCoord.x * textureUnit.x, textureUnit.y * (sideCoord.y + 1)),
+            glm::vec3(0.0f, 1.0f, 0.0f)
+        },
 
-        Vertex{glm::vec3(-1.0f, -1.0f,  1.0f), glm::vec2(sideCoord.x * textureUnit.x, sideCoord.y * textureUnit.y)},
-        Vertex{glm::vec3(1.0f, -1.0f,  1.0f),  glm::vec2(textureUnit.x * (sideCoord.x + 1), sideCoord.y * textureUnit.y)},
-        Vertex{glm::vec3(1.0f,  1.0f,  1.0f),  glm::vec2(textureUnit.x * (sideCoord.x + 1), textureUnit.y * (sideCoord.y + 1))},
-        Vertex{glm::vec3(-1.0f,  1.0f,  1.0f), glm::vec2(sideCoord.x * textureUnit.x, textureUnit.y * (sideCoord.y + 1))},
+        Vertex{glm::vec3(-1.0f, -1.0f,  1.0f), glm::vec2(sideCoord.x * textureUnit.x, sideCoord.y * textureUnit.y),
+            glm::vec3(0.0f, 0.0f, 1.0f)
+        },
+        Vertex{glm::vec3(1.0f, -1.0f,  1.0f),  glm::vec2(textureUnit.x * (sideCoord.x + 1), sideCoord.y * textureUnit.y),
+            glm::vec3(0.0f, -1.0f, 0.0f)
+        },
+        Vertex{glm::vec3(1.0f,  1.0f,  1.0f),  glm::vec2(textureUnit.x * (sideCoord.x + 1), textureUnit.y * (sideCoord.y + 1)),
+            glm::vec3(0.0f, 0.0f, 1.0f)
+        },
+        Vertex{glm::vec3(-1.0f,  1.0f,  1.0f), glm::vec2(sideCoord.x * textureUnit.x, textureUnit.y * (sideCoord.y + 1)),
+            glm::vec3(-1.0f, 0.0f, 0.0f)
+        },
                       
-        Vertex{glm::vec3(-1.0f,  1.0f, -1.0f), glm::vec2(sideCoord.x * textureUnit.x, textureUnit.y * (sideCoord.y + 1))},
-        Vertex{glm::vec3(-1.0f,  1.0f,  1.0f), glm::vec2(textureUnit.x * (sideCoord.x + 1), textureUnit.y * (sideCoord.y + 1))},
-        Vertex{glm::vec3(-1.0f, -1.0f,  1.0f), glm::vec2(textureUnit.x * (sideCoord.x + 1), sideCoord.y * textureUnit.y)},
+        Vertex{glm::vec3(-1.0f,  1.0f, -1.0f), glm::vec2(sideCoord.x * textureUnit.x, textureUnit.y * (sideCoord.y + 1)),
+            glm::vec3(0.0f, 1.0f, -1.0f)
+        },
+        Vertex{glm::vec3(-1.0f,  1.0f,  1.0f), glm::vec2(textureUnit.x * (sideCoord.x + 1), textureUnit.y * (sideCoord.y + 1)),
+            glm::vec3(-1.0f, 0.0f, 0.0f)
+        },
+        Vertex{glm::vec3(-1.0f, -1.0f,  1.0f), glm::vec2(textureUnit.x * (sideCoord.x + 1), sideCoord.y * textureUnit.y),
+            glm::vec3(0.0f, 0.0f, 1.0f)
+        },
                      
-        Vertex{glm::vec3(1.0f,  1.0f,  1.0f),  glm::vec2(sideCoord.x * textureUnit.x, textureUnit.y * (sideCoord.y + 1))},
-        Vertex{glm::vec3(1.0f, -1.0f,  1.0f),  glm::vec2(sideCoord.x * textureUnit.x, sideCoord.y * textureUnit.y)},
+        Vertex{glm::vec3(1.0f,  1.0f,  1.0f),  glm::vec2(sideCoord.x * textureUnit.x, textureUnit.y * (sideCoord.y + 1)),
+            glm::vec3(0.0f, 0.0f, 1.0f)
+        },
+        Vertex{glm::vec3(1.0f, -1.0f,  1.0f),  glm::vec2(sideCoord.x * textureUnit.x, sideCoord.y * textureUnit.y),
+            glm::vec3(0.0f, -1.0f, 0.0f)
+        },
                     
-        Vertex{glm::vec3(1.0f,  1.0f, -1.0f),  glm::vec2(textureUnit.x * (topCoord.x + 1), textureUnit.y * (topCoord.y + 1))},
-        Vertex{glm::vec3(-1.0f,  1.0f, -1.0f), glm::vec2(topCoord.x * textureUnit.x, textureUnit.y * (topCoord.y + 1))},
-        Vertex{glm::vec3(-1.0f,  1.0f,  1.0f), glm::vec2(topCoord.x * textureUnit.x, topCoord.y * textureUnit.y)},
-        Vertex{glm::vec3(1.0f,  1.0f,  1.0f),  glm::vec2(textureUnit.x * (topCoord.x + 1), topCoord.y * textureUnit.y)},
+        Vertex{glm::vec3(1.0f,  1.0f, -1.0f),  glm::vec2(textureUnit.x * (topCoord.x + 1), textureUnit.y * (topCoord.y + 1)),
+            glm::vec3(0.0f, 0.0f, -1.0f)
+        },
+        Vertex{glm::vec3(-1.0f,  1.0f, -1.0f), glm::vec2(topCoord.x * textureUnit.x, textureUnit.y * (topCoord.y + 1)),
+            glm::vec3(0.0f, 1.0f, 0.0f)
+        },
+        Vertex{glm::vec3(-1.0f,  1.0f,  1.0f), glm::vec2(topCoord.x * textureUnit.x, topCoord.y * textureUnit.y),
+            glm::vec3(-1.0f, 0.0f, 0.0f)
+        },
+        Vertex{glm::vec3(1.0f,  1.0f,  1.0f),  glm::vec2(textureUnit.x * (topCoord.x + 1), topCoord.y * textureUnit.y),
+            glm::vec3(0.0f, 0.0f, 1.0f)
+        },
                     
-        Vertex{glm::vec3(-1.0f, -1.0f, -1.0f), glm::vec2(btmCoord.x * textureUnit.x, btmCoord.y * textureUnit.y)},
-        Vertex{glm::vec3(1.0f, -1.0f, -1.0f),  glm::vec2(textureUnit.x * (btmCoord.x + 1), btmCoord.y * textureUnit.y)},
-        Vertex{glm::vec3(1.0f, -1.0f,  1.0f),  glm::vec2(textureUnit.x * (btmCoord.x + 1), textureUnit.y * (btmCoord.y + 1))},
-        Vertex{glm::vec3(-1.0f, -1.0f,  1.0f), glm::vec2(btmCoord.x * textureUnit.x, textureUnit.y * (btmCoord.y + 1))},
+        Vertex{glm::vec3(-1.0f, -1.0f, -1.0f), glm::vec2(btmCoord.x * textureUnit.x, btmCoord.y * textureUnit.y),
+            glm::vec3(-1.0f, 0.0f, 0.0f)
+        },
+        Vertex{glm::vec3(1.0f, -1.0f, -1.0f),  glm::vec2(textureUnit.x * (btmCoord.x + 1), btmCoord.y * textureUnit.y),
+            glm::vec3(1.0f, 0.0f, 0.0f)
+        },
+        Vertex{glm::vec3(1.0f, -1.0f,  1.0f),  glm::vec2(textureUnit.x * (btmCoord.x + 1), textureUnit.y * (btmCoord.y + 1)),
+            glm::vec3(0.0f, -1.0f, 0.0f)
+        },
+        Vertex{glm::vec3(-1.0f, -1.0f,  1.0f), glm::vec2(btmCoord.x * textureUnit.x, textureUnit.y * (btmCoord.y + 1)),
+            glm::vec3(0.0f, 0.0f, 1.0f)
+        },
     };
     
     unsigned int indicies[] = {
@@ -107,32 +145,70 @@ std::vector<Vertex> Cube::GetVerticies(CubeTextureCoord textureCoord){
     glm::vec2 btmCoord = textureCoord.btmCoord;
     
     Vertex vertices[] = {
-        Vertex{glm::vec3(-1.0f, -1.0f, -1.0f), glm::vec2(sideCoord.x * textureUnit.x, sideCoord.y * textureUnit.y)},
-        Vertex{glm::vec3(1.0f, -1.0f, -1.0f),  glm::vec2(textureUnit.x * (sideCoord.x + 1), sideCoord.y * textureUnit.y)},
-        Vertex{glm::vec3(1.0f,  1.0f, -1.0f),  glm::vec2(textureUnit.x * (sideCoord.x + 1), textureUnit.y * (sideCoord.y + 1))},
-        Vertex{glm::vec3(-1.0f,  1.0f, -1.0f), glm::vec2(sideCoord.x * textureUnit.x, textureUnit.y * (sideCoord.y + 1))},
+        Vertex{glm::vec3(-1.0f, -1.0f, -1.0f), glm::vec2(sideCoord.x * textureUnit.x, sideCoord.y * textureUnit.y), glm::vec3(-1.0f, 0.0f, 0.0f)},
+        Vertex{glm::vec3(1.0f, -1.0f, -1.0f),  glm::vec2(textureUnit.x * (sideCoord.x + 1), sideCoord.y * textureUnit.y), glm::vec3(1.0f, 0.0f, 0.0f)},
+        Vertex{glm::vec3(1.0f,  1.0f, -1.0f),  glm::vec2(textureUnit.x * (sideCoord.x + 1), textureUnit.y * (sideCoord.y + 1)),
+            glm::vec3(0.0f, 0.0f, -1.0f)
+        },
+        Vertex{glm::vec3(-1.0f,  1.0f, -1.0f), glm::vec2(sideCoord.x * textureUnit.x, textureUnit.y * (sideCoord.y + 1)),
+            glm::vec3(0.0f, 1.0f, 0.0f)
+        },
 
-        Vertex{glm::vec3(-1.0f, -1.0f,  1.0f), glm::vec2(sideCoord.x * textureUnit.x, sideCoord.y * textureUnit.y)},
-        Vertex{glm::vec3(1.0f, -1.0f,  1.0f),  glm::vec2(textureUnit.x * (sideCoord.x + 1), sideCoord.y * textureUnit.y)},
-        Vertex{glm::vec3(1.0f,  1.0f,  1.0f),  glm::vec2(textureUnit.x * (sideCoord.x + 1), textureUnit.y * (sideCoord.y + 1))},
-        Vertex{glm::vec3(-1.0f,  1.0f,  1.0f), glm::vec2(sideCoord.x * textureUnit.x, textureUnit.y * (sideCoord.y + 1))},
+        Vertex{glm::vec3(-1.0f, -1.0f,  1.0f), glm::vec2(sideCoord.x * textureUnit.x, sideCoord.y * textureUnit.y),
+            glm::vec3(0.0f, 0.0f, 1.0f)
+        },
+        Vertex{glm::vec3(1.0f, -1.0f,  1.0f),  glm::vec2(textureUnit.x * (sideCoord.x + 1), sideCoord.y * textureUnit.y),
+            glm::vec3(0.0f, -1.0f, 0.0f)
+        },
+        Vertex{glm::vec3(1.0f,  1.0f,  1.0f),  glm::vec2(textureUnit.x * (sideCoord.x + 1), textureUnit.y * (sideCoord.y + 1)),
+            glm::vec3(0.0f, 0.0f, 1.0f)
+        },
+        Vertex{glm::vec3(-1.0f,  1.0f,  1.0f), glm::vec2(sideCoord.x * textureUnit.x, textureUnit.y * (sideCoord.y + 1)),
+            glm::vec3(-1.0f, 0.0f, 0.0f)
+        },
                       
-        Vertex{glm::vec3(-1.0f,  1.0f, -1.0f), glm::vec2(sideCoord.x * textureUnit.x, textureUnit.y * (sideCoord.y + 1))},
-        Vertex{glm::vec3(-1.0f,  1.0f,  1.0f), glm::vec2(textureUnit.x * (sideCoord.x + 1), textureUnit.y * (sideCoord.y + 1))},
-        Vertex{glm::vec3(-1.0f, -1.0f,  1.0f), glm::vec2(textureUnit.x * (sideCoord.x + 1), sideCoord.y * textureUnit.y)},
+        Vertex{glm::vec3(-1.0f,  1.0f, -1.0f), glm::vec2(sideCoord.x * textureUnit.x, textureUnit.y * (sideCoord.y + 1)),
+            glm::vec3(0.0f, 1.0f, -1.0f)
+        },
+        Vertex{glm::vec3(-1.0f,  1.0f,  1.0f), glm::vec2(textureUnit.x * (sideCoord.x + 1), textureUnit.y * (sideCoord.y + 1)),
+            glm::vec3(-1.0f, 0.0f, 0.0f)
+        },
+        Vertex{glm::vec3(-1.0f, -1.0f,  1.0f), glm::vec2(textureUnit.x * (sideCoord.x + 1), sideCoord.y * textureUnit.y),
+            glm::vec3(0.0f, 0.0f, 1.0f)
+        },
                      
-        Vertex{glm::vec3(1.0f,  1.0f,  1.0f),  glm::vec2(sideCoord.x * textureUnit.x, textureUnit.y * (sideCoord.y + 1))},
-        Vertex{glm::vec3(1.0f, -1.0f,  1.0f),  glm::vec2(sideCoord.x * textureUnit.x, sideCoord.y * textureUnit.y)},
+        Vertex{glm::vec3(1.0f,  1.0f,  1.0f),  glm::vec2(sideCoord.x * textureUnit.x, textureUnit.y * (sideCoord.y + 1)),
+            glm::vec3(0.0f, 0.0f, 1.0f)
+        },
+        Vertex{glm::vec3(1.0f, -1.0f,  1.0f),  glm::vec2(sideCoord.x * textureUnit.x, sideCoord.y * textureUnit.y),
+            glm::vec3(0.0f, -1.0f, 0.0f)
+        },
                     
-        Vertex{glm::vec3(1.0f,  1.0f, -1.0f),  glm::vec2(textureUnit.x * (topCoord.x + 1), textureUnit.y * (topCoord.y + 1))},
-        Vertex{glm::vec3(-1.0f,  1.0f, -1.0f), glm::vec2(topCoord.x * textureUnit.x, textureUnit.y * (topCoord.y + 1))},
-        Vertex{glm::vec3(-1.0f,  1.0f,  1.0f), glm::vec2(topCoord.x * textureUnit.x, topCoord.y * textureUnit.y)},
-        Vertex{glm::vec3(1.0f,  1.0f,  1.0f),  glm::vec2(textureUnit.x * (topCoord.x + 1), topCoord.y * textureUnit.y)},
+        Vertex{glm::vec3(1.0f,  1.0f, -1.0f),  glm::vec2(textureUnit.x * (topCoord.x + 1), textureUnit.y * (topCoord.y + 1)),
+            glm::vec3(0.0f, 0.0f, -1.0f)
+        },
+        Vertex{glm::vec3(-1.0f,  1.0f, -1.0f), glm::vec2(topCoord.x * textureUnit.x, textureUnit.y * (topCoord.y + 1)),
+            glm::vec3(0.0f, 1.0f, 0.0f)
+        },
+        Vertex{glm::vec3(-1.0f,  1.0f,  1.0f), glm::vec2(topCoord.x * textureUnit.x, topCoord.y * textureUnit.y),
+            glm::vec3(-1.0f, 0.0f, 0.0f)
+        },
+        Vertex{glm::vec3(1.0f,  1.0f,  1.0f),  glm::vec2(textureUnit.x * (topCoord.x + 1), topCoord.y * textureUnit.y),
+            glm::vec3(0.0f, 0.0f, 1.0f)
+        },
                     
-        Vertex{glm::vec3(-1.0f, -1.0f, -1.0f), glm::vec2(btmCoord.x * textureUnit.x, btmCoord.y * textureUnit.y)},
-        Vertex{glm::vec3(1.0f, -1.0f, -1.0f),  glm::vec2(textureUnit.x * (btmCoord.x + 1), btmCoord.y * textureUnit.y)},
-        Vertex{glm::vec3(1.0f, -1.0f,  1.0f),  glm::vec2(textureUnit.x * (btmCoord.x + 1), textureUnit.y * (btmCoord.y + 1))},
-        Vertex{glm::vec3(-1.0f, -1.0f,  1.0f), glm::vec2(btmCoord.x * textureUnit.x, textureUnit.y * (btmCoord.y + 1))},
+        Vertex{glm::vec3(-1.0f, -1.0f, -1.0f), glm::vec2(btmCoord.x * textureUnit.x, btmCoord.y * textureUnit.y),
+            glm::vec3(-1.0f, 0.0f, 0.0f)
+        },
+        Vertex{glm::vec3(1.0f, -1.0f, -1.0f),  glm::vec2(textureUnit.x * (btmCoord.x + 1), btmCoord.y * textureUnit.y),
+            glm::vec3(1.0f, 0.0f, 0.0f)
+        },
+        Vertex{glm::vec3(1.0f, -1.0f,  1.0f),  glm::vec2(textureUnit.x * (btmCoord.x + 1), textureUnit.y * (btmCoord.y + 1)),
+            glm::vec3(0.0f, -1.0f, 0.0f)
+        },
+        Vertex{glm::vec3(-1.0f, -1.0f,  1.0f), glm::vec2(btmCoord.x * textureUnit.x, textureUnit.y * (btmCoord.y + 1)),
+            glm::vec3(0.0f, 0.0f, 1.0f)
+        },
     };
     
     std::vector<Vertex> verticies(vertices, vertices + sizeof(vertices) / sizeof(Vertex));

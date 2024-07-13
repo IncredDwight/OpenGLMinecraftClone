@@ -3,7 +3,7 @@
 #include <iostream>
 #include <string>
 
-static size_t CubeCount = 200;
+static size_t CubeCount = 500;
 static size_t VertexCubeCount = CubeCount * 21;
 static size_t MaxIndicesCubeCount = CubeCount * 36;
 static uint32_t IndexCount;
