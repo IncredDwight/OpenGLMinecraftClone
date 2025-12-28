@@ -19,12 +19,6 @@ This project uses **CMake** as its build system and **does not require Xcode or 
 
 ---
 
-## Screenshots / Demo
-
-> (Optional: add screenshots or a GIF here once you have one)
-
----
-
 ## Requirements
 
 ### macOS
