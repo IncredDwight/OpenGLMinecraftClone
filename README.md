@@ -52,3 +52,14 @@ From the project root directory:
 ```bash
 cmake -S . -B build
 cmake --build build
+```
+## Run
+
+The executable must be run from the `build/` directory so that relative paths to
+shaders and textures resolve correctly.
+
+After building the project:
+
+```bash
+cd build
+./MinecraftClone
