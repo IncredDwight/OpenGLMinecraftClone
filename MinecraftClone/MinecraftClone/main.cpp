@@ -48,8 +48,8 @@ int main(void)
     
     VertexArray vertexArray(9 * sizeof(float));
     
-    std::string shaderFilePath = "/Users/yaroslavvalchyshen/Desktop/Programming/GitHub/OpenGLMinecraftClone/MinecraftClone/MinecraftClone/resources/Shaders/Basic.shader";
-    std::string textureFilePath = "/Users/yaroslavvalchyshen/Desktop/Programming/GitHub/OpenGLMinecraftClone/MinecraftClone/MinecraftClone/resources/Textures/TextureMap.png";
+    std::string shaderFilePath = "resources/Shaders/Basic.shader";
+    std::string textureFilePath = "resources/Textures/TextureMap.png";
     Texture texture(textureFilePath, GL_TEXTURE_2D);
     Shader shader(shaderFilePath);
     CubeTextureCoord grassBlock(glm::vec2(9, 37), glm::vec2(8, 37), glm::vec2(2, 61));
