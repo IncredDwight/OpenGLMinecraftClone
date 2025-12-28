@@ -3,7 +3,7 @@
 A Minecraft-style voxel renderer written in **C++** using **modern OpenGL**, **GLFW**, and **GLEW**.  
 The project focuses on low-level graphics programming, batching, camera systems, and procedural terrain generation.
 
-This project uses **CMake** as its build system and **does not require Xcode or any specific IDE**.
+This project uses **CMake** as its build system and **does not require any specific IDE**.
 
 ---
 
