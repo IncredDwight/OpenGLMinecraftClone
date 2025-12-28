@@ -40,3 +40,15 @@ Install dependencies with Homebrew:
 
 ```bash
 brew install glfw glew
+```
+## Build and Run
+
+This project uses **CMake** and can be built entirely from the command line.
+
+### Build
+
+From the project root directory:
+
+```bash
+cmake -S . -B build
+cmake --build build
