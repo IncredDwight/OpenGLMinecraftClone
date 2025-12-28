@@ -1,0 +1,3 @@
+/Users/yaroslavvalchyshen/Desktop/Career/Projects/OpenGLMinecraftClone/build/CMakeFiles/MinecraftClone.dir
+/Users/yaroslavvalchyshen/Desktop/Career/Projects/OpenGLMinecraftClone/build/CMakeFiles/edit_cache.dir
+/Users/yaroslavvalchyshen/Desktop/Career/Projects/OpenGLMinecraftClone/build/CMakeFiles/rebuild_cache.dir

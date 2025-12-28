@@ -1,0 +1,43 @@
+file(REMOVE_RECURSE
+  "CMakeFiles/MinecraftClone.dir/main.cpp.o"
+  "CMakeFiles/MinecraftClone.dir/main.cpp.o.d"
+  "CMakeFiles/MinecraftClone.dir/source/BatchRenderer.cpp.o"
+  "CMakeFiles/MinecraftClone.dir/source/BatchRenderer.cpp.o.d"
+  "CMakeFiles/MinecraftClone.dir/source/Camera/Camera.cpp.o"
+  "CMakeFiles/MinecraftClone.dir/source/Camera/Camera.cpp.o.d"
+  "CMakeFiles/MinecraftClone.dir/source/Camera/CameraMovement.cpp.o"
+  "CMakeFiles/MinecraftClone.dir/source/Camera/CameraMovement.cpp.o.d"
+  "CMakeFiles/MinecraftClone.dir/source/Camera/CameraRotation.cpp.o"
+  "CMakeFiles/MinecraftClone.dir/source/Camera/CameraRotation.cpp.o.d"
+  "CMakeFiles/MinecraftClone.dir/source/Camera/MouseInput.cpp.o"
+  "CMakeFiles/MinecraftClone.dir/source/Camera/MouseInput.cpp.o.d"
+  "CMakeFiles/MinecraftClone.dir/source/GameObject/Cube.cpp.o"
+  "CMakeFiles/MinecraftClone.dir/source/GameObject/Cube.cpp.o.d"
+  "CMakeFiles/MinecraftClone.dir/source/GameObject/GameObject.cpp.o"
+  "CMakeFiles/MinecraftClone.dir/source/GameObject/GameObject.cpp.o.d"
+  "CMakeFiles/MinecraftClone.dir/source/GameObject/Mesh.cpp.o"
+  "CMakeFiles/MinecraftClone.dir/source/GameObject/Mesh.cpp.o.d"
+  "CMakeFiles/MinecraftClone.dir/source/GameObject/Rectangle.cpp.o"
+  "CMakeFiles/MinecraftClone.dir/source/GameObject/Rectangle.cpp.o.d"
+  "CMakeFiles/MinecraftClone.dir/source/IndexBuffer.cpp.o"
+  "CMakeFiles/MinecraftClone.dir/source/IndexBuffer.cpp.o.d"
+  "CMakeFiles/MinecraftClone.dir/source/Shader.cpp.o"
+  "CMakeFiles/MinecraftClone.dir/source/Shader.cpp.o.d"
+  "CMakeFiles/MinecraftClone.dir/source/SimplexNoise.cpp.o"
+  "CMakeFiles/MinecraftClone.dir/source/SimplexNoise.cpp.o.d"
+  "CMakeFiles/MinecraftClone.dir/source/Texture.cpp.o"
+  "CMakeFiles/MinecraftClone.dir/source/Texture.cpp.o.d"
+  "CMakeFiles/MinecraftClone.dir/source/VertexArray.cpp.o"
+  "CMakeFiles/MinecraftClone.dir/source/VertexArray.cpp.o.d"
+  "CMakeFiles/MinecraftClone.dir/source/VertexBuffer.cpp.o"
+  "CMakeFiles/MinecraftClone.dir/source/VertexBuffer.cpp.o.d"
+  "CMakeFiles/MinecraftClone.dir/source/VertexLayout.cpp.o"
+  "CMakeFiles/MinecraftClone.dir/source/VertexLayout.cpp.o.d"
+  "MinecraftClone"
+  "MinecraftClone.pdb"
+)
+
+# Per-language clean rules from dependency scanning.
+foreach(lang CXX)
+  include(CMakeFiles/MinecraftClone.dir/cmake_clean_${lang}.cmake OPTIONAL)
+endforeach()
