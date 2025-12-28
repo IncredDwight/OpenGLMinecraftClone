@@ -15,7 +15,6 @@ This project uses **CMake** as its build system and **does not require Xcode or 
 - First-person camera movement and rotation
 - Procedural terrain generation using Simplex noise
 - Custom rendering abstractions (VAO, VBO, shaders)
-- Clean, portable CMake-based build
 
 ---
 
