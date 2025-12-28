@@ -56,3 +56,43 @@ After building the project:
 ```bash
 cd build
 ./MinecraftClone
+```
+## Controls
+
+### Camera Movement (Keyboard)
+
+| Key | Action |
+|----|----|
+| **W** | Move forward |
+| **S** | Move backward |
+| **A** | Move left |
+| **D** | Move right |
+
+Movement is handled by the `CameraMovement` system and provides first-person navigation through the world.
+
+---
+
+### Camera Rotation (Mouse)
+
+- **Mouse movement** controls camera rotation (yaw & pitch)
+- Cursor is captured by the window for FPS-style look control
+
+Rotation is handled by the `CameraRotation` and `MouseInput` systems.
+
+---
+
+### Terrain / Noise Controls (Keyboard)
+
+| Key | Action |
+|----|----|
+| **↑ Arrow** | Increase noise offset (Y) |
+| **↓ Arrow** | Decrease noise offset (Y) |
+| **→ Arrow** | Increase noise offset (X) |
+| **← Arrow** | Decrease noise offset (X) |
+| **Q** | Decrease noise scale |
+| **E** | Increase noise scale |
+
+These controls modify the **Simplex noise parameters** used for procedural terrain generation in real time.
+
+---
+
